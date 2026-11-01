@@ -1,0 +1,12 @@
+---
+/** Layout for plain Markdown pages in src/pages. The page supplies its own H1. */
+import BaseLayout from './BaseLayout.astro';
+
+const { frontmatter } = Astro.props as { frontmatter: { title: string; description?: string } };
+---
+
+<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+  <div class="prose">
+    <slot />
+  </div>
+</BaseLayout>
