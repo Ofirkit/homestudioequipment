@@ -1,7 +1,7 @@
 /**
  * Site-wide settings. Change AMAZON_TAG to your Amazon Associates tracking ID.
  */
-export const AMAZON_TAG = 'homestudioeq-20'; // TODO: replace with your real Associates tag
+export const AMAZON_TAG = 'homemusicequipment-20'; // TODO: replace with your real Associates tag
 export const AMAZON_DOMAIN = 'https://www.amazon.com';
 
 export const SITE = {
