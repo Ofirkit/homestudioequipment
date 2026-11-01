@@ -18,6 +18,8 @@ const posts = defineCollection({
       heroImage: image().optional(),
       heroAlt: z.string().optional(),
       draft: z.boolean().default(false),
+      /** Main product ASIN, for single-product reviews. */
+      asin: z.string().optional(),
       faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
     }),
 });

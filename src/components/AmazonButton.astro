@@ -5,14 +5,16 @@ interface Props {
   /** Amazon ASIN. If omitted, the button links to an Amazon search for `name`. */
   asin?: string;
   /** Product name, used for the search fallback and the accessible label. */
-  name: string;
+  name?: string;
   label?: string;
 }
 
 const { asin, name, label = 'Check price on Amazon' } = Astro.props;
 
+if (!asin && !name) throw new Error('AmazonButton needs an `asin` or a `name`.');
+
 const url = new URL(asin ? `/dp/${asin}/` : '/s', AMAZON_DOMAIN);
-if (!asin) url.searchParams.set('k', name);
+if (!asin) url.searchParams.set('k', name!);
 url.searchParams.set('tag', AMAZON_TAG);
 ---
 
@@ -21,7 +23,7 @@ url.searchParams.set('tag', AMAZON_TAG);
   href={url.toString()}
   target="_blank"
   rel="sponsored nofollow noopener"
-  aria-label={`${label}: ${name} (opens in a new tab)`}
+  aria-label={`${name ? `${label}: ${name}` : label} (opens in a new tab)`}
 >
   {label}
 </a>

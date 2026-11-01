@@ -1,46 +1,63 @@
 ---
 import AmazonButton from './AmazonButton.astro';
 
+/**
+ * Two ways to use it:
+ *
+ * 1. Product comparison: `products` + rows of `{ label, values }`, one value per product.
+ *    Adds a "Check price" button row unless `buttons={false}`.
+ * 2. Simple table: `columns` (header labels) + rows as string arrays.
+ *    The first cell of each row is treated as the row header.
+ */
 interface Product {
   name: string;
   asin?: string;
 }
 
-interface Props {
-  caption?: string;
-  products: Product[];
-  /** Each row: a spec label plus one value per product, in the same order as `products`. */
-  rows: { label: string; values: string[] }[];
-  /** Show an Amazon button row at the bottom. */
-  buttons?: boolean;
-}
+type Props = { caption?: string } & (
+  | { products: Product[]; rows: { label: string; values: string[] }[]; buttons?: boolean; columns?: never }
+  | { columns: string[]; rows: string[][]; products?: never; buttons?: never }
+);
 
-const { caption, products, rows, buttons = true } = Astro.props;
+const { caption } = Astro.props;
+
+let headers: string[];
+let body: string[][];
+let products: Product[] | undefined;
+
+if (Astro.props.columns) {
+  headers = Astro.props.columns;
+  body = Astro.props.rows;
+} else {
+  products = Astro.props.products;
+  headers = ['', ...products.map((p) => p.name)];
+  body = Astro.props.rows.map((r) => [r.label, ...r.values]);
+}
+const showButtons = !!products && Astro.props.buttons !== false;
 ---
 
 <div class="table-scroll" role="region" aria-label={caption ?? 'Comparison table'} tabindex="0">
-  <table class="comparison">
+  <table class:list={["comparison", { wide: headers.length > 2 }]}>
     {caption && <caption>{caption}</caption>}
     <thead>
       <tr>
-        <th scope="col"><span class="sr-only">Spec</span></th>
-        {products.map((p) => <th scope="col">{p.name}</th>)}
+        {headers.map((h) => <th scope="col">{h || <span class="sr-only">Spec</span>}</th>)}
       </tr>
     </thead>
     <tbody>
       {
-        rows.map((row) => (
+        body.map(([first, ...rest]) => (
           <tr>
-            <th scope="row">{row.label}</th>
-            {row.values.map((v) => <td>{v}</td>)}
+            <th scope="row">{first}</th>
+            {rest.map((v) => <td>{v}</td>)}
           </tr>
         ))
       }
       {
-        buttons && (
+        showButtons && (
           <tr>
             <th scope="row">Price</th>
-            {products.map((p) => (
+            {products!.map((p) => (
               <td>
                 <AmazonButton asin={p.asin} name={p.name} label="Check price" />
               </td>
