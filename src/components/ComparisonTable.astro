@@ -1,0 +1,53 @@
+---
+import AmazonButton from './AmazonButton.astro';
+
+interface Product {
+  name: string;
+  asin?: string;
+}
+
+interface Props {
+  caption?: string;
+  products: Product[];
+  /** Each row: a spec label plus one value per product, in the same order as `products`. */
+  rows: { label: string; values: string[] }[];
+  /** Show an Amazon button row at the bottom. */
+  buttons?: boolean;
+}
+
+const { caption, products, rows, buttons = true } = Astro.props;
+---
+
+<div class="table-scroll" role="region" aria-label={caption ?? 'Comparison table'} tabindex="0">
+  <table class="comparison">
+    {caption && <caption>{caption}</caption>}
+    <thead>
+      <tr>
+        <th scope="col"><span class="sr-only">Spec</span></th>
+        {products.map((p) => <th scope="col">{p.name}</th>)}
+      </tr>
+    </thead>
+    <tbody>
+      {
+        rows.map((row) => (
+          <tr>
+            <th scope="row">{row.label}</th>
+            {row.values.map((v) => <td>{v}</td>)}
+          </tr>
+        ))
+      }
+      {
+        buttons && (
+          <tr>
+            <th scope="row">Price</th>
+            {products.map((p) => (
+              <td>
+                <AmazonButton asin={p.asin} name={p.name} label="Check price" />
+              </td>
+            ))}
+          </tr>
+        )
+      }
+    </tbody>
+  </table>
+</div>

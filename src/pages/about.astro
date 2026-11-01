@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config';
+
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: SITE.author,
+  url: new URL('/about/', SITE.url).toString(),
+  jobTitle: 'Music producer and designer',
+  knowsAbout: ['Music production', 'Ableton Live', 'Psytrance', 'Home recording', 'Audio interfaces', 'MIDI controllers'],
+};
+---
+
+<BaseLayout
+  title="About Ophir"
+  description="Who's behind HomeStudioEquipment: Ophir, a psytrance producer, Ableton user, and designer."
+  jsonLd={[person]}
+>
+  <div class="prose">
+    <h1>About HomeStudioEquipment</h1>
+    <p class="lead">
+      Hi, I'm Ophir. I'm a music producer and a designer, and this site is where I share what I've learned about
+      building a home studio that actually works.
+    </p>
+
+    <h2>Who writes these reviews?</h2>
+    <p>
+      I produce psytrance in Ableton Live, so I spend a lot of time with audio interfaces, MIDI keyboards, pad
+      controllers, and monitors. <!-- TODO: add your story: how long you've produced, releases/labels, current setup. -->
+    </p>
+
+    <h2>How do we choose and review gear?</h2>
+    <p>
+      We focus on what matters to beginner and intermediate producers, podcasters, and creators: sound quality,
+      build, workflow, software bundles, and value. Every recommendation is written in our own words. We never copy
+      customer reviews and we never show prices that go out of date. Instead, we link you to the current price on
+      Amazon.
+    </p>
+
+    <h2>How does this site make money?</h2>
+    <p>
+      Some links are Amazon affiliate links. If you buy through them, we earn a small commission at no extra cost
+      to you. It never changes what we recommend. See the <a href="/affiliate-disclosure/">affiliate disclosure</a>
+      for details.
+    </p>
+  </div>
+</BaseLayout>

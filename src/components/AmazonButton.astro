@@ -1,0 +1,27 @@
+---
+import { AMAZON_TAG, AMAZON_DOMAIN } from '../config';
+
+interface Props {
+  /** Amazon ASIN. If omitted, the button links to an Amazon search for `name`. */
+  asin?: string;
+  /** Product name, used for the search fallback and the accessible label. */
+  name: string;
+  label?: string;
+}
+
+const { asin, name, label = 'Check price on Amazon' } = Astro.props;
+
+const url = new URL(asin ? `/dp/${asin}/` : '/s', AMAZON_DOMAIN);
+if (!asin) url.searchParams.set('k', name);
+url.searchParams.set('tag', AMAZON_TAG);
+---
+
+<a
+  class="amazon-btn"
+  href={url.toString()}
+  target="_blank"
+  rel="sponsored nofollow noopener"
+  aria-label={`${label}: ${name} (opens in a new tab)`}
+>
+  {label}
+</a>

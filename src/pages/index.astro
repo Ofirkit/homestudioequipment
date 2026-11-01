@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { getPosts } from '../lib/posts';
+import { CATEGORIES, SITE } from '../config';
+
+const posts = (await getPosts()).slice(0, 9);
+---
+
+<BaseLayout title={SITE.name}>
+  <section class="hero">
+    <h1>Home studio gear, explained by a producer</h1>
+    <p class="lead">
+      Straight-talking reviews and comparisons of audio interfaces, MIDI keyboards, pad controllers, mics, and
+      monitors, so you can spend less time researching and more time making music.
+    </p>
+  </section>
+
+  <section aria-labelledby="cats">
+    <h2 id="cats">Browse by category</h2>
+    <ul class="category-grid">
+      {
+        CATEGORIES.map((c) => (
+          <li>
+            <a href={`/category/${c.slug}/`}>
+              <strong>{c.name}</strong>
+              <span>{c.blurb}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section aria-labelledby="latest">
+    <h2 id="latest">Latest reviews and guides</h2>
+    {
+      posts.length ? (
+        <div class="post-grid">{posts.map((post) => <PostCard post={post} />)}</div>
+      ) : (
+        <p>The first reviews are on the way. Check back soon.</p>
+      )
+    }
+  </section>
+</BaseLayout>

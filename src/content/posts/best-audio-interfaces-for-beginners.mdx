@@ -1,0 +1,88 @@
+---
+title: "Best Audio Interfaces for Beginners: Scarlett 2i2 vs MOTU M2 vs UA Volt 2"
+description: "Which 2-input audio interface should you buy for your first home studio? A plain-English comparison of the Focusrite Scarlett 2i2, MOTU M2, and UA Volt 2."
+pubDate: 2026-11-01
+category: audio-interfaces
+draft: true # TODO: verify specs, add ASINs and your own hands-on notes, then set to false
+faq:
+  - q: "Do I need an audio interface to make music on a computer?"
+    a: "Not to make beats in a DAW, but you do need one to record vocals or instruments with good quality and to get low-latency, clean audio to your headphones and monitors."
+  - q: "How many inputs does a beginner need?"
+    a: "Two is the sweet spot. It lets you record a vocal and a guitar at once, or a stereo synth, without paying for inputs you won't use."
+  - q: "Is 24-bit/192kHz necessary?"
+    a: "No. All three interfaces here support it, but 24-bit/48kHz is plenty for most home recordings and keeps file sizes and CPU load down."
+---
+
+import ProductBox from '../../components/ProductBox.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+
+{/* TODO: add real ASINs. Without one, the button links to an Amazon search for the product name. */}
+export const products = [
+  { name: 'Focusrite Scarlett 2i2 (4th Gen)', asin: undefined },
+  { name: 'MOTU M2', asin: undefined },
+  { name: 'Universal Audio Volt 2', asin: undefined },
+];
+
+<div class="quick-verdict">
+  <h2>Quick verdict</h2>
+
+  - **Best overall for beginners:** Focusrite Scarlett 2i2 (4th Gen). Auto Gain and Clip Safe make it very hard to record a bad take.
+  - **Best for metering and streaming:** MOTU M2. Its built-in level meters and loopback are great for producers and streamers.
+  - **Best for vintage character:** UA Volt 2. Its Vintage preamp mode adds warmth to vocals and guitars.
+</div>
+
+## How do these interfaces compare?
+
+<ComparisonTable
+  caption="2-input audio interfaces at a glance"
+  products={products}
+  rows={[
+    { label: 'Inputs', values: ['2 combo (mic/line/inst)', '2 combo (mic/line/inst)', '2 combo (mic/line/inst)'] },
+    { label: 'Max resolution', values: ['24-bit / 192kHz', '24-bit / 192kHz', '24-bit / 192kHz'] },
+    { label: 'Connection', values: ['USB-C', 'USB-C', 'USB-C'] },
+    { label: 'Standout feature', values: ['Auto Gain + Clip Safe', 'LCD level meters + loopback', 'Vintage preamp mode'] },
+    { label: 'Best for', values: ['First-time recorders', 'Producers and streamers', 'Singer-songwriters'] },
+  ]}
+/>
+
+## Which interface is best for most beginners?
+
+The **Scarlett 2i2 (4th Gen)** is the safest pick. It sets your input level for you and helps prevent clipping, so you spend less time fiddling and more time recording.
+
+<ProductBox
+  name={products[0].name}
+  badge="Best overall"
+  verdict="The easiest way to get clean, well-leveled recordings on day one."
+  pros={['Auto Gain sets levels for you', 'Clip Safe helps prevent distorted takes', 'Compact and bus-powered']}
+  cons={['No physical MIDI ports', 'Basic metering compared to the M2']}
+/>
+
+## Which interface has the best metering?
+
+The **MOTU M2**. Its full-color LCD meters show your input and output levels at a glance, which is handy when you're gain-staging a mix or going live.
+
+<ProductBox
+  name={products[1].name}
+  badge="Best metering"
+  verdict="A producer-friendly interface with excellent meters and loopback for streaming."
+  pros={['Clear LCD level meters', 'Loopback for streaming and podcasts', 'Built-in 5-pin MIDI in/out']}
+  cons={['No automatic gain setting', 'Fewer beginner guides than Focusrite']}
+/>
+
+## Which interface adds the most character?
+
+The **UA Volt 2**. Flip on Vintage mode and the preamp adds a warm, tube-like color that flatters vocals and acoustic instruments.
+
+<ProductBox
+  name={products[2].name}
+  badge="Best character"
+  verdict="Adds a touch of analog warmth to everything you record."
+  pros={['Vintage preamp mode', 'Sturdy, retro design', 'Good software bundle']}
+  cons={['Vintage mode is not for every source', 'Larger than the Scarlett']}
+/>
+
+## Who should buy which?
+
+- **Recording your first vocals or podcast?** Get the Scarlett 2i2.
+- **Producing electronic music and streaming?** Get the MOTU M2.
+- **Singer-songwriter who wants a warmer sound?** Get the Volt 2.

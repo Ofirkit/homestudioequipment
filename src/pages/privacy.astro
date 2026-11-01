@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config';
+---
+
+<BaseLayout title="Privacy Policy" description={`Privacy policy for ${SITE.name}.`}>
+  <div class="prose">
+    <h1>Privacy Policy</h1>
+    <p class="small">Last updated: November 1, 2026</p>
+
+    <h2>What information do we collect?</h2>
+    <p>
+      We don't run accounts, comments, or forms, and we don't use analytics or advertising trackers. Our host,
+      GitHub Pages, may log basic technical data (such as IP address and browser type) to keep the service secure.
+      See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>.
+    </p>
+
+    <h2>What happens when you click an Amazon link?</h2>
+    <p>
+      Affiliate links take you to Amazon, which may set cookies to track that the visit came from us so we can earn
+      a commission. Amazon's handling of your data is covered by
+      <a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=468496">Amazon's Privacy Notice</a>.
+    </p>
+
+    <h2>What if you email us?</h2>
+    <p>
+      If you contact us by email, we use your message and address only to reply. We don't sell or share it.
+    </p>
+
+    <h2>How can you contact us about privacy?</h2>
+    <p>Email <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+  </div>
+</BaseLayout>
