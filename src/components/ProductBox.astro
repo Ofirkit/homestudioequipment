@@ -9,13 +9,15 @@ interface Props {
   pros: string[];
   cons: string[];
   asin?: string;
+  /** Ready-made affiliate link; overrides `asin`. */
+  href?: string;
   image?: ImageMetadata;
   imageAlt?: string;
   /** Optional ribbon, e.g. "Best overall". */
   badge?: string;
 }
 
-const { name, verdict, pros, cons, asin, image, imageAlt, badge } = Astro.props;
+const { name, verdict, pros, cons, asin, href, image, imageAlt, badge } = Astro.props;
 ---
 
 <section class="product-box" aria-label={name}>
@@ -37,5 +39,5 @@ const { name, verdict, pros, cons, asin, image, imageAlt, badge } = Astro.props;
       <ul class="cons">{cons.map((c) => <li>{c}</li>)}</ul>
     </div>
   </div>
-  <AmazonButton asin={asin} name={name} />
+  <AmazonButton href={href} asin={asin} name={name} />
 </section>
