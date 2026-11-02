@@ -1,15 +1,23 @@
 ---
 interface Props {
   items: { name: string; path: string }[];
+  /** Link every item, including the last (use when the current page isn't in the list). */
+  linkLast?: boolean;
 }
-const { items } = Astro.props;
+const { items, linkLast = false } = Astro.props;
 ---
 
 <nav class="breadcrumbs" aria-label="Breadcrumb">
   <ol>
     {
       items.map((item, i) => (
-        <li>{i < items.length - 1 ? <a href={item.path}>{item.name}</a> : <span aria-current="page">{item.name}</span>}</li>
+        <li>
+          {linkLast || i < items.length - 1 ? (
+            <a href={item.path}>{item.name}</a>
+          ) : (
+            <span aria-current="page">{item.name}</span>
+          )}
+        </li>
       ))
     }
   </ol>

@@ -1,0 +1,25 @@
+---
+interface Props {
+  /** 0–5 in half steps. */
+  value: number;
+}
+const { value } = Astro.props;
+const stars = [1, 2, 3, 4, 5].map((n) => (value >= n ? 'full' : value >= n - 0.5 ? 'half' : 'empty'));
+const id = `half-${Math.random().toString(36).slice(2, 8)}`;
+const path = 'M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z';
+---
+
+<span class="stars" role="img" aria-label={`Rated ${value} out of 5`}>
+  <svg width="0" height="0" aria-hidden="true">
+    <defs>
+      <linearGradient id={id}><stop offset="50%" stop-color="currentColor" /><stop offset="50%" stop-color="var(--star-empty)" /></linearGradient>
+    </defs>
+  </svg>
+  {
+    stars.map((s) => (
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+        <path d={path} fill={s === 'full' ? 'currentColor' : s === 'half' ? `url(#${id})` : 'var(--star-empty)'} />
+      </svg>
+    ))
+  }
+</span>
