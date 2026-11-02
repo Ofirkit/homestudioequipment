@@ -80,7 +80,7 @@ main { padding-block: 2rem 4rem; min-height: 60vh; }
 .product-box { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; margin: 1.75rem 0; }
 .product-box h3 { margin: 0 0 0.35rem; font-size: 1.3rem; }
 .product-head { display: flex; gap: 1rem; align-items: flex-start; }
-.product-img { width: 120px; height: auto; object-fit: contain; flex-shrink: 0; }
+.product-img { width: 160px; height: 160px; object-fit: contain; flex-shrink: 0; background: #fff; border-radius: 8px; }
 .verdict { margin: 0; color: var(--muted); }
 .badge { display: inline-block; margin: 0 0 0.6rem; background: var(--text); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px; }
 .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
@@ -91,6 +91,7 @@ main { padding-block: 2rem 4rem; min-height: 60vh; }
 @media (max-width: 560px) {
   .pros-cons { grid-template-columns: 1fr; }
   .product-head { flex-direction: column; }
+  .product-img { width: 100%; height: 220px; }
 }
 
 /* Comparison table */
