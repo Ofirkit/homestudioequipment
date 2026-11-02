@@ -1,0 +1,70 @@
+---
+import AmazonButton from './AmazonButton.astro';
+
+/**
+ * Two ways to use it:
+ *
+ * 1. Product comparison: `products` + rows of `{ label, values }`, one value per product.
+ *    Adds a "Check price" button row unless `buttons={false}`.
+ * 2. Simple table: `columns` (header labels) + rows as string arrays.
+ *    The first cell of each row is treated as the row header.
+ */
+interface Product {
+  name: string;
+  asin?: string;
+}
+
+type Props = { caption?: string } & (
+  | { products: Product[]; rows: { label: string; values: string[] }[]; buttons?: boolean; columns?: never }
+  | { columns: string[]; rows: string[][]; products?: never; buttons?: never }
+);
+
+const { caption } = Astro.props;
+
+let headers: string[];
+let body: string[][];
+let products: Product[] | undefined;
+
+if (Astro.props.columns) {
+  headers = Astro.props.columns;
+  body = Astro.props.rows;
+} else {
+  products = Astro.props.products;
+  headers = ['', ...products.map((p) => p.name)];
+  body = Astro.props.rows.map((r) => [r.label, ...r.values]);
+}
+const showButtons = !!products && Astro.props.buttons !== false;
+---
+
+<div class="table-scroll" role="region" aria-label={caption ?? 'Comparison table'} tabindex="0">
+  <table class:list={["comparison", { wide: headers.length > 2 }]}>
+    {caption && <caption>{caption}</caption>}
+    <thead>
+      <tr>
+        {headers.map((h) => <th scope="col">{h || <span class="sr-only">Spec</span>}</th>)}
+      </tr>
+    </thead>
+    <tbody>
+      {
+        body.map(([first, ...rest]) => (
+          <tr>
+            <th scope="row">{first}</th>
+            {rest.map((v) => <td>{v}</td>)}
+          </tr>
+        ))
+      }
+      {
+        showButtons && (
+          <tr>
+            <th scope="row">Price</th>
+            {products!.map((p) => (
+              <td>
+                <AmazonButton asin={p.asin} name={p.name} label="Check price" />
+              </td>
+            ))}
+          </tr>
+        )
+      }
+    </tbody>
+  </table>
+</div>

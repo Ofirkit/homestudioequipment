@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config';
+---
+
+<BaseLayout title="Affiliate Disclosure" description={`How ${SITE.name} uses affiliate links and earns commissions.`}>
+  <div class="prose">
+    <h1>Affiliate Disclosure</h1>
+    <p class="lead">
+      {SITE.name} is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program
+      designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com.
+    </p>
+
+    <h2>What does that mean for you?</h2>
+    <p>
+      As an Amazon Associate, we earn from qualifying purchases. When you click a product link on this site and buy
+      something on Amazon, we may receive a small commission. You don't pay anything extra.
+    </p>
+
+    <h2>Does it affect our recommendations?</h2>
+    <p>
+      No. We recommend gear based on how well it suits home producers and creators, not on commission. If a product
+      isn't worth your money, we'll say so.
+    </p>
+
+    <h2>Why don't we list prices?</h2>
+    <p>
+      Prices on Amazon change often. To keep things accurate, we link to Amazon so you always see the current price
+      there. Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.
+    </p>
+  </div>
+</BaseLayout>

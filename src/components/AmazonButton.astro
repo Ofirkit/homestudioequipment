@@ -1,0 +1,35 @@
+---
+import { AMAZON_TAG, AMAZON_DOMAIN } from '../config';
+
+interface Props {
+  /** A ready-made affiliate link (e.g. a SiteStripe short link). Used as-is; takes priority over `asin`. */
+  href?: string;
+  /** Amazon ASIN. If omitted, the button links to an Amazon search for `name`. */
+  asin?: string;
+  /** Product name, used for the search fallback and the accessible label. */
+  name?: string;
+  label?: string;
+}
+
+const { href, asin, name, label = 'Check price on Amazon' } = Astro.props;
+
+if (!href && !asin && !name) throw new Error('AmazonButton needs an `href`, `asin`, or `name`.');
+
+let link = href;
+if (!link) {
+  const url = new URL(asin ? `/dp/${asin}/` : '/s', AMAZON_DOMAIN);
+  if (!asin) url.searchParams.set('k', name!);
+  url.searchParams.set('tag', AMAZON_TAG);
+  link = url.toString();
+}
+---
+
+<a
+  class="amazon-btn"
+  href={link}
+  target="_blank"
+  rel="sponsored nofollow noopener"
+  aria-label={`${name ? `${label}: ${name}` : label} (opens in a new tab)`}
+>
+  {label}
+</a>

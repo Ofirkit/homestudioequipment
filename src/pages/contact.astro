@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config';
+---
+
+<BaseLayout title="Contact" description={`Get in touch with ${SITE.name}.`}>
+  <div class="prose">
+    <h1>Contact</h1>
+    <p class="lead">Questions about gear, a correction, or a product you'd like reviewed? I'd love to hear from you.</p>
+    <p><a class="amazon-btn" href={`mailto:${SITE.email}`}>Email {SITE.email}</a></p>
+    <p class="small">I read everything, though I can't always reply quickly.</p>
+  </div>
+</BaseLayout>
