@@ -2,12 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostCard from '../components/PostCard.astro';
 import { getPosts } from '../lib/posts';
-import { CATEGORIES, SITE } from '../config';
+import { CATEGORIES } from '../config';
 
 const posts = (await getPosts()).slice(0, 9);
 ---
 
-<BaseLayout title={SITE.name}>
+<BaseLayout title="Home Studio Gear Reviews">
   <section class="hero">
     <h1>Home studio gear, explained by a producer</h1>
     <p class="lead">

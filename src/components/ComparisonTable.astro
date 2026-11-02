@@ -36,7 +36,7 @@ if (Astro.props.columns) {
 const showButtons = !!products && Astro.props.buttons !== false;
 ---
 
-<div class="table-scroll" role="region" aria-label={caption ?? 'Comparison table'} tabindex="0">
+<div class="table-scroll" role="region" aria-label={caption ?? `Table: ${headers.filter(Boolean).join(', ')}`} tabindex="0">
   <table class:list={["comparison", { wide: headers.length > 2 }]}>
     {caption && <caption>{caption}</caption>}
     <thead>
