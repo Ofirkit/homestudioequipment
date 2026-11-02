@@ -49,7 +49,7 @@ const links = [
         <a
           href={l.href}
           style={`--c:${l.color}`}
-          aria-label={`Share on ${l.name}`}
+          aria-label={`Share on ${l.name}${l.name === 'Email' ? '' : ' (opens in a new tab)'}`}
           title={`Share on ${l.name}`}
           {...(l.name === 'Email' ? {} : { target: '_blank', rel: 'noopener' })}
         >

@@ -12,6 +12,8 @@ export const SITE = {
   author: 'Ophir',
   email: 'hello@homestudioequipment.com', // TODO: confirm contact address
   logo: '/favicon.svg',
+  /** Default social sharing image (1200x630) for pages without their own. */
+  ogImage: '/og-default.png',
 } as const;
 
 export const CATEGORIES = [

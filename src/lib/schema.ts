@@ -8,7 +8,20 @@ export const organization = () => ({
   '@id': abs('/#organization'),
   name: SITE.name,
   url: SITE.url,
+  description: SITE.description,
   logo: abs(SITE.logo),
+  founder: { '@type': 'Person', name: SITE.author, url: abs('/about/') },
+});
+
+export const website = () => ({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': abs('/#website'),
+  name: SITE.name,
+  url: SITE.url,
+  description: SITE.description,
+  inLanguage: 'en',
+  publisher: { '@id': abs('/#organization') },
 });
 
 export const breadcrumbs = (items: { name: string; path: string }[]) => ({

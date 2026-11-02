@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import { SITE, CATEGORIES } from '../config';
-import { organization } from '../lib/schema';
+import { organization, website } from '../lib/schema';
 
 interface Props {
   title: string;
@@ -26,9 +26,11 @@ const {
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
-const fullTitle = title === SITE.name ? title : `${title} | ${SITE.name}`;
-const ogImage = image ? new URL(image, Astro.site).toString() : undefined;
-const schemas = [organization(), ...jsonLd];
+// Keep <title> within ~60 characters so Google doesn't truncate it: drop the site-name suffix on long titles.
+const suffixed = `${title} | ${SITE.name}`;
+const fullTitle = title === SITE.name || suffixed.length > 60 ? title : suffixed;
+const ogImage = new URL(image ?? SITE.ogImage, Astro.site).toString();
+const schemas = [organization(), website(), ...jsonLd];
 const year = new Date().getFullYear();
 ---
 
@@ -50,10 +52,13 @@ const year = new Date().getFullYear();
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta property="og:image" content={ogImage} />
+    {!image && <meta property="og:image:width" content="1200" />}
+    {!image && <meta property="og:image:height" content="630" />}
     {published && <meta property="article:published_time" content={published.toISOString()} />}
     {modified && <meta property="article:modified_time" content={modified.toISOString()} />}
-    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly site summary" />
 
     {schemas.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
   </head>

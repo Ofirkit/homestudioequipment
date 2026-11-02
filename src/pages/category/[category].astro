@@ -19,16 +19,20 @@ const crumbs = [
 ---
 
 <BaseLayout
-  title={`${category.name} Reviews and Buying Guides`}
+  title={`${category.name} Reviews & Guides`}
   description={`${category.blurb} Reviews, comparisons, and buying advice for ${category.name.toLowerCase()} in a home studio.`}
   jsonLd={[breadcrumbs(crumbs)]}
+  noindex={!posts.length}
 >
   <Breadcrumbs items={crumbs} />
   <h1>{category.name}</h1>
   <p class="lead">{category.blurb}</p>
   {
     posts.length ? (
-      <div class="post-grid">{posts.map((post) => <PostCard post={post} />)}</div>
+      <>
+        <h2>All {category.name.toLowerCase()} reviews and guides</h2>
+        <div class="post-grid">{posts.map((post) => <PostCard post={post} />)}</div>
+      </>
     ) : (
       <p>No {category.name.toLowerCase()} guides yet. They're coming soon.</p>
     )
