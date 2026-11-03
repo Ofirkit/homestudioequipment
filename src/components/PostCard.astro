@@ -1,6 +1,7 @@
 ---
 import type { Post } from '../lib/posts';
 import { lastUpdated, formatDate } from '../lib/posts';
+import { Image } from 'astro:assets';
 import { getCategory } from '../config';
 
 interface Props {
@@ -8,9 +9,21 @@ interface Props {
 }
 const { post } = Astro.props;
 const updated = lastUpdated(post);
+const { heroImage, heroAlt, title } = post.data;
 ---
 
 <article class="post-card">
+  {
+    heroImage && (
+      <a href={`/${post.id}/`} class="post-card-img" tabindex="-1" aria-hidden="true">
+        {typeof heroImage === 'string' ? (
+          <img src={heroImage} alt="" width="600" height="375" loading="lazy" decoding="async" />
+        ) : (
+          <Image src={heroImage} alt="" width={600} loading="lazy" />
+        )}
+      </a>
+    )
+  }
   <p class="eyebrow">{getCategory(post.data.category)?.name}</p>
   <h3><a href={`/${post.id}/`}>{post.data.title}</a></h3>
   <p>{post.data.description}</p>
