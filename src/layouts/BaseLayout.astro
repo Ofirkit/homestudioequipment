@@ -61,6 +61,15 @@ const year = new Date().getFullYear();
     <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly site summary" />
 
     {schemas.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+
+    <!-- Umami analytics (cookieless). Tracks visits only on the live domain, not localhost. -->
+    <script
+      is:inline
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="103a0bcd-f66e-400e-a850-52ea78d89b9e"
+      data-domains="homestudioequipment.com"
+    ></script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
