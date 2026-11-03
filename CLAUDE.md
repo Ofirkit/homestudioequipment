@@ -29,3 +29,14 @@ Amazon affiliate site reviewing and comparing home studio gear (audio interfaces
 
 ## Post format
 Quick verdict at top, comparison table, who each product is for, pros/cons, FAQ. Clear, friendly, no fluff.
+
+## Frontmatter conventions
+- `category` is a slug from `CATEGORIES` in `src/config.ts` (e.g. `audio-interfaces`), not the display name.
+- Add `subtitle`, `kind`, and `heroImage`/`heroAlt`/`heroCredit: "Amazon"`. Pass the same Amazon image to the `ProductBox` `image` prop. Amazon images stay hotlinked, never downloaded.
+- Put the FAQ in frontmatter (`faq:`), not as body headings, so it renders and emits FAQPage JSON-LD.
+- Don't add an inline disclosure; the layout shows it. Internal links end with a trailing slash.
+- Keep the owner-sample note short: "Based on N owner reviews of the X we read on Amazon."
+- Refer to unnamed reviewers as "they", not "he" or "she".
+
+## Workflow
+- Claude may merge its own pull requests once `npm run build` passes, then report what changed.
