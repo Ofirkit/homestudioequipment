@@ -8,7 +8,7 @@ export const SITE = {
   name: 'HomeStudioEquipment',
   url: 'https://homestudioequipment.com',
   description:
-    'Honest, beginner-friendly reviews and comparisons of home studio gear: audio interfaces, MIDI keyboards, pad controllers, mics, and studio monitors.',
+    'Home studio gear reviews built from real owner feedback: what owners like, common problems, and specs for audio interfaces, MIDI keyboards and more.',
   author: 'Ophir',
   email: 'hello@homestudioequipment.com', // TODO: confirm contact address
   logo: '/favicon.svg',

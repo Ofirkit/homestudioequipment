@@ -12,7 +12,7 @@ export const GET: APIRoute = async () => {
     '',
     `> ${SITE.description}`,
     '',
-    `Written by ${SITE.author}, a music producer and designer. Reviews are based on manufacturer specs and an analysis of verified owner reviews; posts say clearly when a product hasn't been tested hands-on. The site earns from Amazon affiliate links.`,
+    `Written by ${SITE.author}, a music producer and designer. Reviews are based on manufacturer specs and an analysis of Amazon owner reviews; posts say clearly when a product hasn't been tested hands-on. The site earns from Amazon affiliate links.`,
     '',
     '## Reviews and guides',
     '',
