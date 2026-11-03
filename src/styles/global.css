@@ -46,7 +46,7 @@ h2 { font-size: 1.5rem; margin-top: 2.25rem; }
 .site-header ul { display: flex; flex-wrap: wrap; gap: 0.25rem 1.1rem; list-style: none; margin: 0; padding: 0; }
 .site-header nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
 .site-header nav a:hover { color: var(--text); }
-main { padding-block: 2rem 4rem; min-height: 60vh; }
+main.wrap { padding-block: 2rem 4rem; min-height: 60vh; }
 .site-footer { border-top: 1px solid var(--border); background: var(--surface); padding-block: 1.5rem; }
 .site-footer nav { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0.5rem 0; }
 
@@ -55,7 +55,9 @@ main { padding-block: 2rem 4rem; min-height: 60vh; }
 .category-grid { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 1rem; }
 .category-grid a { display: flex; flex-direction: column; gap: 0.25rem; height: 100%; padding: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; color: var(--text); }
 .category-grid a:hover { border-color: var(--accent); }
-.category-grid span { color: var(--muted); font-size: 0.9rem; }
+.category-soon { display: flex; flex-direction: column; gap: 0.25rem; height: 100%; padding: 1rem; border: 1px dashed var(--border); border-radius: var(--radius); }
+.category-soon .eyebrow { margin-top: 0.25rem; color: var(--muted); }
+.category-grid span:not(.eyebrow) { color: var(--muted); font-size: 0.9rem; }
 .post-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: 1.25rem; }
 .post-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
 .post-card-img { display: block; margin: -1.25rem -1.25rem 1rem; aspect-ratio: 16 / 10; background: #fff; border-radius: var(--radius) var(--radius) 0 0; overflow: hidden; }
@@ -84,7 +86,7 @@ main { padding-block: 2rem 4rem; min-height: 60vh; }
 .affiliate-notice { font-size: 1rem; color: var(--muted); margin: 0 0 1.75rem; }
 .affiliate-notice a { color: inherit; }
 .post-hero { margin: 0; }
-.post-hero img { display: block; width: 100%; height: auto; max-height: 36rem; object-fit: contain; background: #fff; border-radius: 4px; }
+.post-hero img { display: block; width: 100%; height: auto; max-height: 26rem; object-fit: contain; background: #fff; border-radius: 4px; }
 .post-hero figcaption { font-size: 0.875rem; color: var(--muted); margin-top: 0.5rem; }
 .breadcrumbs ol { display: flex; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; font-size: 1.05rem; }
 .breadcrumbs a { text-decoration: none; }

@@ -9,7 +9,7 @@ interface Props {
 }
 const { post } = Astro.props;
 const updated = lastUpdated(post);
-const { heroImage, heroAlt, title } = post.data;
+const { heroImage } = post.data;
 ---
 
 <article class="post-card">
