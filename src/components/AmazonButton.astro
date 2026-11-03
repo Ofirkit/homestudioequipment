@@ -30,6 +30,9 @@ if (!link) {
   target="_blank"
   rel="sponsored nofollow noopener"
   aria-label={`${name ? `${label}: ${name}` : label} (opens in a new tab)`}
+  data-umami-event="amazon-click"
+  data-umami-event-product={asin ?? name ?? href}
+  data-umami-event-page={Astro.url.pathname}
 >
   {label}
 </a>
