@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
-import { SITE, CATEGORIES } from '../config';
+import { SITE } from '../config';
+import { getLiveCategories } from '../lib/posts';
 import { organization, website } from '../lib/schema';
 
 interface Props {
@@ -8,6 +9,8 @@ interface Props {
   description?: string;
   ogType?: 'website' | 'article';
   image?: string;
+  /** Alt text for the social sharing image. */
+  imageAlt?: string;
   jsonLd?: object[];
   noindex?: boolean;
   published?: Date;
@@ -19,6 +22,7 @@ const {
   description = SITE.description,
   ogType = 'website',
   image,
+  imageAlt,
   jsonLd = [],
   noindex = false,
   published,
@@ -32,6 +36,8 @@ const fullTitle = title === SITE.name || suffixed.length > 60 ? title : suffixed
 const ogImage = new URL(image ?? SITE.ogImage, Astro.site).toString();
 const schemas = [organization(), website(), ...jsonLd];
 const year = new Date().getFullYear();
+// Only link categories that have published posts; empty ones are noindexed placeholders.
+const navCategories = await getLiveCategories();
 ---
 
 <!doctype html>
@@ -44,15 +50,20 @@ const year = new Date().getFullYear();
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#fafaf9" />
+    <link rel="alternate" type="application/rss+xml" title={`${SITE.name} reviews`} href="/rss.xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="author" content={SITE.author} />
 
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:type" content={ogType} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={imageAlt ?? `${SITE.name}: home studio gear reviews`} />
     {!image && <meta property="og:image:width" content="1200" />}
     {!image && <meta property="og:image:height" content="630" />}
     {published && <meta property="article:published_time" content={published.toISOString()} />}
@@ -78,7 +89,7 @@ const year = new Date().getFullYear();
         <a class="logo" href="/">Home<span>Studio</span>Equipment</a>
         <nav aria-label="Categories">
           <ul>
-            {CATEGORIES.map((c) => <li><a href={`/category/${c.slug}/`}>{c.name}</a></li>)}
+            {navCategories.map((c) => <li><a href={`/category/${c.slug}/`}>{c.name}</a></li>)}
           </ul>
         </nav>
       </div>
@@ -91,7 +102,7 @@ const year = new Date().getFullYear();
     <footer class="site-footer">
       <div class="wrap">
         <p class="small">
-          As an Amazon Associate, {SITE.name} earns from qualifying purchases.
+          As an Amazon Associate, {SITE.name} earns from qualifying purchases.{' '}
           <a href="/affiliate-disclosure/">Learn more</a>.
         </p>
         <nav aria-label="Site">

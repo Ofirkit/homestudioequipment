@@ -1,10 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostCard from '../components/PostCard.astro';
-import { getPosts } from '../lib/posts';
+import { getPosts, getLiveCategories } from '../lib/posts';
 import { CATEGORIES } from '../config';
 
 const posts = (await getPosts()).slice(0, 9);
+const live = new Set((await getLiveCategories()).map((c) => c.slug));
 ---
 
 <BaseLayout title="Home Studio Gear Reviews">
@@ -22,10 +23,18 @@ const posts = (await getPosts()).slice(0, 9);
       {
         CATEGORIES.map((c) => (
           <li>
-            <a href={`/category/${c.slug}/`}>
-              <strong>{c.name}</strong>
-              <span>{c.blurb}</span>
-            </a>
+            {live.has(c.slug) ? (
+              <a href={`/category/${c.slug}/`}>
+                <strong>{c.name}</strong>
+                <span>{c.blurb}</span>
+              </a>
+            ) : (
+              <div class="category-soon">
+                <strong>{c.name}</strong>
+                <span>{c.blurb}</span>
+                <span class="eyebrow">Coming soon</span>
+              </div>
+            )}
           </li>
         ))
       }

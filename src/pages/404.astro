@@ -1,8 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPosts } from '../lib/posts';
+
+const latest = (await getPosts()).slice(0, 5);
 ---
 
 <BaseLayout title="Page not found" noindex>
   <h1>Page not found</h1>
-  <p>That page doesn't exist. Try the <a href="/">home page</a> or pick a category above.</p>
+  <p>That page doesn't exist. Try the <a href="/">home page</a>, or one of the latest reviews:</p>
+  <ul>
+    {latest.map((p) => <li><a href={`/${p.id}/`}>{p.data.title}</a></li>)}
+  </ul>
 </BaseLayout>

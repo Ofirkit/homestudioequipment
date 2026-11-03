@@ -43,6 +43,7 @@ export const article = (a: {
   modified: Date;
   author: string;
   image?: string;
+  section?: string;
 }) => ({
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -53,6 +54,9 @@ export const article = (a: {
   dateModified: a.modified.toISOString(),
   author: { '@type': 'Person', name: a.author, url: abs('/about/') },
   publisher: { '@id': abs('/#organization') },
+  isPartOf: { '@id': abs('/#website') },
+  inLanguage: 'en',
+  ...(a.section ? { articleSection: a.section } : {}),
   ...(a.image ? { image: abs(a.image) } : {}),
 });
 

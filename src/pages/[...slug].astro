@@ -33,7 +33,7 @@ const crumbs = [
 ];
 
 const jsonLd = [
-  article({ title, description, path, published: pubDate, modified: updated, author, image: heroSrc }),
+  article({ title, description, path, published: pubDate, modified: updated, author, image: heroSrc, section: cat.name }),
   breadcrumbs([...crumbs, { name: title, path }]),
   ...(faq?.length ? [faqPage(faq)] : []),
 ];
@@ -44,6 +44,7 @@ const jsonLd = [
   description={description}
   ogType="article"
   image={heroSrc}
+  imageAlt={heroAlt}
   jsonLd={jsonLd}
   published={pubDate}
   modified={updated}

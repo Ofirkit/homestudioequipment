@@ -29,6 +29,7 @@ export const GET: APIRoute = async () => {
     `- [How We Review](${url('/how-we-review/')}): Where our information comes from and what we don't do.`,
     `- [About](${url('/about/')}): Who writes the reviews.`,
     `- [Affiliate Disclosure](${url('/affiliate-disclosure/')}): How the site makes money.`,
+    `- [RSS feed](${url('/rss.xml')}): New and updated reviews.`,
     '',
   ];
 
