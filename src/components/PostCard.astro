@@ -26,6 +26,6 @@ const { heroImage } = post.data;
   }
   <p class="eyebrow">{getCategory(post.data.category)?.name}</p>
   <h3><a href={`/${post.id}/`}>{post.data.title}</a></h3>
-  <p>{post.data.description}</p>
+  <p>{post.data.subtitle ?? post.data.description}</p>
   <p class="small">Updated <time datetime={updated.toISOString()}>{formatDate(updated)}</time></p>
 </article>
