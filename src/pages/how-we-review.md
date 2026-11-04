@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/MarkdownPage.astro
 title: "How We Review"
-description: "How Home Studio Equipment writes its gear reviews: official manufacturer specs plus an analysis of real owner reviews."
+description: "How Home Studio Equipment writes its gear reviews: official manufacturer specs plus an AI-assisted analysis of real owner reviews."
 ---
 
 # How We Review
@@ -13,7 +13,11 @@ We want you to know exactly where our information comes from, so you can decide 
 Each review draws on two sources:
 
 1. **Official manufacturer information.** Specs, features, what's in the box and bundled software come from the manufacturer's own product details.
-2. **Owner reviews.** We read real owner reviews on Amazon, both positive and negative, and summarize the patterns: what people like, what they complain about, and who the product seems to suit.
+2. **Owner reviews.** We collect real owner reviews on Amazon, both positive and negative, and use AI to find the patterns: what people like, what they complain about, and who the product seems to suit.
+
+## Why we use AI
+
+Reading dozens of reviews for every product takes hours. AI lets us go through all of them and spot what owners mention again and again, so you get the patterns without doing that research yourself.
 
 ## What we don't do
 
