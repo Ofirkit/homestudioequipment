@@ -32,7 +32,7 @@ Quick verdict at top, comparison table, who each product is for, pros/cons, FAQ.
 
 ## Frontmatter conventions
 - `category` is a slug from `CATEGORIES` in `src/config.ts` (e.g. `audio-interfaces`), not the display name.
-- Add `subtitle` (short card hook), `kind`, and `heroImage`/`heroAlt`/`heroCredit`. Prefer the manufacturer's own product image (credit the brand, e.g. `heroCredit: "Akai Professional"`); fall back to a hotlinked Amazon image (`heroCredit: "Amazon"`, never downloaded). Pass the same image to the `ProductBox` `image` prop.
+- Add `subtitle` (short card hook), `kind`, and `heroImage`/`heroAlt`/`heroCredit`. Prefer the manufacturer's own product image (credit the brand, e.g. `heroCredit: "Akai Professional"`); fall back to a hotlinked Amazon image (`heroCredit: "Amazon"`, never downloaded). Pass the same image to the `ProductBox` `image` prop. If the photo has lots of empty space around the product (manufacturer images are often 2400x2400 squares), set `imageZoom` (e.g. 1.5) to enlarge it in the hero and card.
 - Put the FAQ in frontmatter (`faq:`), not as body headings, so it renders and emits FAQPage JSON-LD.
 - Don't add an inline disclosure; the layout shows it. Internal links end with a trailing slash.
 - Keep the owner-sample note short: "Based on N owner reviews of the X we read on Amazon."

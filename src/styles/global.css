@@ -61,7 +61,7 @@ main.wrap { padding-block: 2rem 4rem; min-height: 60vh; }
 .post-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: 1.25rem; }
 .post-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
 .post-card-img { display: block; margin: -1.25rem -1.25rem 1rem; aspect-ratio: 16 / 10; background: #fff; border-radius: var(--radius) var(--radius) 0 0; overflow: hidden; }
-.post-card-img img { width: 100%; height: 100%; object-fit: contain; padding: 0.75rem; box-sizing: border-box; }
+.post-card-img img { width: 100%; height: 100%; object-fit: contain; padding: 0.75rem; box-sizing: border-box; transform: scale(var(--zoom, 1)); }
 .post-card h3 { margin: 0.35rem 0 0.5rem; }
 .post-card h3 a { color: var(--text); text-decoration: none; }
 .post-card h3 a:hover { color: var(--accent); }
@@ -86,7 +86,8 @@ main.wrap { padding-block: 2rem 4rem; min-height: 60vh; }
 .affiliate-notice { font-size: 1rem; color: var(--muted); margin: 0 0 1.75rem; }
 .affiliate-notice a { color: inherit; }
 .post-hero { margin: 0; }
-.post-hero img { display: block; width: 100%; height: auto; max-height: 26rem; object-fit: contain; background: #fff; border-radius: 4px; }
+.post-hero-frame { overflow: hidden; background: #fff; border-radius: 4px; }
+.post-hero img { display: block; width: 100%; height: auto; max-height: 26rem; object-fit: contain; background: #fff; transform: scale(var(--zoom, 1)); }
 .post-hero figcaption { font-size: 0.875rem; color: var(--muted); margin-top: 0.5rem; }
 .breadcrumbs ol { display: flex; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; font-size: 1.05rem; }
 .breadcrumbs a { text-decoration: none; }
