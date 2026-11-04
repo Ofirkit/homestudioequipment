@@ -1,0 +1,178 @@
+---
+title: "Behringer UMC22 Review: Is the Low Price Worth It?"
+subtitle: "Cheap, simple and solid. But Windows drivers are a gamble."
+kind: "Review"
+description: "Owners like its price, metal build and Midas preamp, but many Windows users fight driver problems, hiss and noise. Here's what to weigh before you buy."
+pubDate: 2026-11-04
+author: "Ophir"
+category: "audio-interfaces"
+asin: "B00FFIGZF6"
+heroImage: "../../assets/products/behringer-umc22.webp"
+heroAlt: "Behringer UMC22 USB audio interface"
+heroCredit: "Behringer"
+faq:
+  - q: "Does the UMC22 work on Windows 10 and 11?"
+    a: "It can, but this is the most common complaint. Owners say Behringer's website offers ASIO4ALL, a generic driver, rather than a dedicated UMC22 driver. Some got it working that way, or with an older Behringer driver found elsewhere online. Others never got it working on Windows 10 or 11 and returned it. Two owners say the standard Windows driver that installs on its own works fine if you only use a mic."
+  - q: "Why doesn't the instrument input show up on Windows?"
+    a: "Two owners hit this with the standard Windows driver. One fixed it in Windows Sound settings: on the Recording tab, open the properties of 'Microphone USB Audio Codec', go to Advanced, and change the default format from 1 channel to 2 channel. The mic then comes in on the first channel and the instrument on the second."
+  - q: "Why is my mic only on the left channel?"
+    a: "Owners say the two inputs come into the computer as one stereo pair: input 1 (the XLR combo jack) on the left and input 2 (the instrument jack) on the right. One Linux owner fixed it by setting the input to mono in PulseAudio Volume Control (pavucontrol)."
+  - q: "Can I record two mics at once?"
+    a: "No. Only input 1 takes an XLR mic. Input 2 is a ¼\" instrument input. You can record a mic and a guitar at the same time, and one owner notes two guitars works too."
+  - q: "Can I mute the monitors when I use headphones?"
+    a: "No. One owner says it always plays through the headphones and monitors at the same time, with no way to switch between them."
+  - q: "Will my headphones plug straight in?"
+    a: "Only if they have a ¼\" plug. Two owners say they needed an adapter. Owners disagree on volume: one calls the headphone output very powerful, another found it very quiet with several headphones."
+  - q: "Why do I hear hiss or noise?"
+    a: "Many owners report hiss, static or a high noise floor, some even with nothing plugged in. One fixed static by swapping USB cables, and one Linux owner's hiss went away after replugging. One owner says the phantom power, which comes from USB, adds a slight buzz at high volume. Another says the generic Windows drivers cause popping and clicking, and recommends ASIO4ALL from Behringer's site. Some owners couldn't fix it and returned the unit."
+  - q: "What sample rate and bit depth does it record at?"
+    a: "The product description says 48kHz, though the spec table on the same listing shows 96kHz. One owner says both inputs record at 48kHz at most. The listing doesn't state bit depth. One owner says it only works at 16-bit, and another notes the documentation doesn't say."
+  - q: "Does it have MIDI?"
+    a: "No. The listing's connections don't include MIDI ports, so a USB MIDI keyboard like the Akai MPK Mini IV connects straight to your computer instead."
+  - q: "Does it work with my DAW?"
+    a: "Behringer lists Pro Tools, Ableton Live and Cubase as compatible. Owners report using it with Pro Tools, Ableton Live, Reaper, Cubase, Audacity, Cakewalk, BandLab and FL Studio. One owner couldn't get it to work with Studio One, and one says ASIO4ALL locks the interface to one app at a time."
+  - q: "Does it work on Mac and Linux?"
+    a: "Behringer lists Mac and Windows. One Mac owner says it was recognized right away. One Linux owner on Debian says it was plug-and-play, and another says Ubuntu support is on par with Windows."
+---
+
+import ProductBox from '../../components/ProductBox.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import AmazonButton from '../../components/AmazonButton.astro';
+import umc22Image from '../../assets/products/behringer-umc22.webp';
+
+> **How we wrote this:** This review is based on Behringer's official product information and an AI-assisted analysis of owner reviews on Amazon, checked by Ophir before publishing. We haven't tested this unit ourselves. [How we review](/how-we-review/)
+
+## Quick verdict
+
+The **Behringer UMC22** is a low-cost, USB-powered audio interface with one combo mic/line input (with a Midas-designed preamp) and one instrument input. Owners praise the price, the solid metal case and how simple it is, and two say a Shure SM57 sounded very good through it. The biggest complaint is Windows drivers: owners say Behringer's site points to ASIO4ALL, a generic driver, and many struggled to get it working or gave up. Hiss and background noise come a close second, and some owners found the sound muddy.
+
+<ProductBox
+  name="Behringer UMC22"
+  asin="B00FFIGZF6"
+  image={umc22Image}
+  imageAlt="Behringer UMC22 USB audio interface"
+  verdict="A cheap, simple first interface that many owners are happy with, but Windows drivers and noise are real risks."
+  pros={["Low price", "Solid, compact metal build", "Simple controls with signal and clip LEDs", "USB-powered, no power adapter needed", "Record a mic and a guitar at once"]}
+  cons={["No dedicated Windows driver on Behringer's site, per owners", "Hiss or high noise floor for many owners", "Muddy or muffled sound for some", "Only one mic input", "48kHz maximum", "Slow or no replies from support for some owners"]}
+/>
+
+## Should you buy the Behringer UMC22?
+
+**Yes,** if you're on a tight budget, buying your first interface, and record one mic or one mic plus a guitar. **No,** if you're on Windows and don't want to troubleshoot drivers, need clean, low-noise recordings, or want to stream with both inputs.
+
+### Owner sentiment
+
+<ComparisonTable
+  columns={["Area", "Owner sentiment"]}
+  rows={[
+    ["Price and value", "Positive"],
+    ["Build and size", "Positive"],
+    ["Controls and ease of use", "Mostly positive"],
+    ["Sound quality", "Mixed"],
+    ["Setup", "Mixed"],
+    ["Headphone and monitor output", "Mixed"],
+    ["Reliability over time", "Mixed"],
+    ["Noise and hiss", "Mostly negative"],
+    ["Windows drivers", "Negative"],
+    ["Customer support", "Negative (few mentions)"],
+  ]}
+/>
+
+*Based on 50 owner reviews of the UMC22 we read on Amazon, 10 at each star rating. [How we review](/how-we-review/)*
+
+**A good fit if you:**
+- Record vocals, podcasts, voiceover or acoustic guitar on a tight budget
+- Want to record one mic and one guitar at the same time
+- Want a small interface that runs on USB power
+
+**Look elsewhere if you:**
+- Use Windows and want a dedicated, low-latency driver. Owners say Behringer only offers ASIO4ALL, which one owner says locks the interface to one app at a time
+- Need two mics at once
+- Stream and need both inputs plus computer audio. One owner needed extra software (VoiceMeeter Banana) and found the added delay a headache. That owner moved to Behringer's UMC404HD and recommends the UMC202HD, saying both have proper Windows drivers
+- Want the quietest recordings possible. Three owners who moved to a Focusrite Scarlett (see our [Scarlett Solo 3rd Gen review](/focusrite-scarlett-solo-3rd-gen-review/)) or a PreSonus Studio 24c were happier with the sound
+- Need sample rates above 48kHz
+- Need MIDI In/Out. A USB MIDI keyboard like the [Akai MPK Mini IV](/akai-mpk-mini-iv-review/) plugs straight into your computer instead
+
+<AmazonButton asin="B00FFIGZF6" label="Check price on Amazon" />
+
+## Specs at a glance
+
+<ComparisonTable
+  columns={["Spec", "Behringer UMC22"]}
+  rows={[
+    ["Format", "2x2 USB audio interface"],
+    ["Inputs", "1 combo input (XLR, ¼\" TRS or ¼\" TS) with a Midas-designed mic preamp, 1 ¼\" TRS instrument input"],
+    ["Sample rate", "48kHz (per the product description; the listing's spec table shows 96kHz)"],
+    ["Mic features", "+48V phantom power switch on the rear"],
+    ["Metering", "Status and signal/clip LEDs"],
+    ["Outputs", "2x ¼\" TRS monitor outputs, headphone output"],
+    ["Monitoring", "Direct monitor switch"],
+    ["Connection", "USB"],
+    ["Power", "USB bus-powered"],
+    ["Compatibility", "Mac and Windows (per the product description)"],
+    ["Weight", "1 lb (as listed on Amazon)"],
+    ["Warranty", "See Behringer's warranty page (linked from the Amazon listing)"],
+  ]}
+/>
+
+## Software and drivers
+
+- Owners say Behringer's website offers ASIO4ALL, a generic Windows driver, rather than a dedicated UMC22 driver. Some found an older Behringer driver (one owner names version 2.8.40) on forums or through YouTube links.
+- On Windows, a generic USB audio driver installs when you plug it in. Two owners say it's fine for a mic on its own. Others couldn't use the instrument input with it, and one says it causes popping and clicking.
+- Two older reviews mention free software. One owner (2016) got a Tracktion DAW code after registering, though it took several emails. Another (2018) mentions free multitrack software from Behringer.
+
+*Driver and software details come from owner reviews, not from Behringer, and may have changed.*
+
+## What owners like
+
+- **Price.** The most common praise. Many owners call it great value, and several bought it as a cheap first interface or a quick replacement.
+- **Solid metal build.** Owners mention the metal case, sturdy feel, smooth knobs and compact size. One calls the build superb for the price.
+- **Good sound with the right mic.** Two owners with a Shure SM57 say it sounded very good or lifelike, and one says a Sennheiser e935 sounds great. Others call recordings clean or say it improved their PC audio.
+- **Midas preamp.** Several owners point to the Midas-designed preamp as a highlight at this price. One owner says input 2 uses a different (Xenyx) preamp, and that the Midas one sounds better.
+- **Plug-and-play for some.** Several owners plugged it in and were recording right away, including one on Linux.
+- **Direct monitoring.** Owners like hearing themselves with no lag, and one calls it truly zero-latency. One owner, though, says the button seemed to do nothing.
+- **Mic plus guitar.** Owners record vocals and guitar together. One runs a multi-effects pedal straight in and uses the pedal's amp models, and another recorded an electronic drum kit onto an iPhone.
+- **Long life for some.** One owner has used it for 12 years, another for many years with no trouble, and one Linux owner has run it nearly 24/7.
+- **Gain.** One owner coming from an older Scarlett prefers the UMC22's gain and volume controls. One owner with a Sennheiser e945 dynamic mic says it drove the mic well enough, though an inline booster like a Cloud Lifter helped.
+
+## Common complaints
+
+**Windows drivers (the most common theme)**
+- More than 15 owners in our sample had driver trouble on Windows 10 or 11: the unit not working at all, crashes, pops and clicks, or the instrument input not showing up. Several returned it.
+- One owner says ASIO4ALL locks the interface to one program at a time, so you can't hear your browser while your DAW is open. Another had an ASIO conflict with a Windows "MS GS" synth and returned the unit.
+- One owner says even the Behringer driver has no buffer setting to control latency.
+- One owner couldn't get it to work with Studio One.
+- One owner blames constant crashes and pops on Windows 10 for damaging their studio monitors.
+
+**Hiss and noise**
+- More than a dozen owners report hiss, static, whine, buzz or a high noise floor. Some hear it with nothing plugged in, and two say it made their recordings unusable.
+- One owner hears 60-cycle hum on guitar, even with humbucker pickups.
+- Fixes owners found include a different USB cable, replugging the unit, and using ASIO4ALL instead of the generic driver.
+- Not everyone had this: one owner calls it ultra quiet, and another hears little to no noise at their volume.
+
+**Sound quality**
+- About half a dozen owners found the sound muddy, muffled or flat, or say detail gets lost. Two who switched to a Focusrite Scarlett say the difference was clear.
+- One owner says monitoring through the headphone jack dulls the highs, though recordings in the DAW sound as the mic picked them up.
+
+**Inputs and connectors**
+- One guitarist found the two inputs have very different gain: input 1 clipped easily, while input 2 stayed low even at full gain.
+- One owner's input 2 jack wouldn't hold guitar cables in place.
+- One owner says a cheap cable jammed the XLR part of the combo jack. They opened the unit and freed it with a small screwdriver.
+- One owner says the signal and clip lights only respond above about half gain.
+
+**Headphone output**
+- Owners disagree on volume: one says it's very loud, another found it very quiet with several headphones.
+- Some hear hiss on the headphone jack, and one hears a pop when the unit powers on.
+
+**Reliability over time**
+- One owner's input or output began cutting out after a few months, a few times a week, and needed a replug each time. Another had connection issues and volume jumping up and down three months in.
+- One Linux owner got hiss in the right channel after a day or two of use, fixed by replugging.
+
+**Customer support**
+- Six owners describe slow, generic or no replies from Behringer, including a warranty registration that went unanswered and a support site that was slow and hard to register on. Two got refunds through Amazon instead.
+
+**Other**
+- One unit arrived scratched with fingerprints on it.
+- Owners found little documentation or troubleshooting help in the box.
+
+<AmazonButton asin="B00FFIGZF6" label="Check price on Amazon" />
