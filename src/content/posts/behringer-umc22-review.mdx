@@ -12,7 +12,7 @@ heroAlt: "Behringer UMC22 USB audio interface"
 heroCredit: "Behringer"
 faq:
   - q: "Does the UMC22 work on Windows 10 and 11?"
-    a: "It can, but this is the most common complaint. Owners say Behringer's website offers ASIO4ALL, a generic driver, rather than a dedicated UMC22 driver. Some got it working that way, or with an older Behringer driver found elsewhere online. Others never got it working on Windows 10 or 11 and returned it. Two owners say the standard Windows driver that installs on its own works fine if you only use a mic."
+    a: "It can, but this is the most common complaint. Behringer's specs say Windows drivers are available as a download from behringer.com. Owners, though, say the site offers ASIO4ALL, a generic driver, rather than a dedicated UMC22 driver. Some got it working that way, or with an older Behringer driver found elsewhere online. Others never got it working on Windows 10 or 11 and returned it. Two owners say the standard Windows driver that installs on its own works fine if you only use a mic."
   - q: "Why doesn't the instrument input show up on Windows?"
     a: "Two owners hit this with the standard Windows driver. One fixed it in Windows Sound settings: on the Recording tab, open the properties of 'Microphone USB Audio Codec', go to Advanced, and change the default format from 1 channel to 2 channel. The mic then comes in on the first channel and the instrument on the second."
   - q: "Why is my mic only on the left channel?"
@@ -26,7 +26,7 @@ faq:
   - q: "Why do I hear hiss or noise?"
     a: "Many owners report hiss, static or a high noise floor, some even with nothing plugged in. One fixed static by swapping USB cables, and one Linux owner's hiss went away after replugging. One owner says the phantom power, which comes from USB, adds a slight buzz at high volume. Another says the generic Windows drivers cause popping and clicking, and recommends ASIO4ALL from Behringer's site. Some owners couldn't fix it and returned the unit."
   - q: "What sample rate and bit depth does it record at?"
-    a: "The product description says 48kHz, though the spec table on the same listing shows 96kHz. One owner says both inputs record at 48kHz at most. The listing doesn't state bit depth. One owner says it only works at 16-bit, and another notes the documentation doesn't say."
+    a: "Behringer's specs list 32, 44.1 and 48kHz, so 48kHz is the maximum. (One Amazon spec table shows 96kHz, which doesn't match.) Behringer's specs don't state bit depth. One owner says it only works at 16-bit, and another notes the documentation doesn't say."
   - q: "Does it have MIDI?"
     a: "No. The listing's connections don't include MIDI ports, so a USB MIDI keyboard like the Akai MPK Mini IV connects straight to your computer instead."
   - q: "Does it work with my DAW?"
@@ -101,15 +101,20 @@ The **Behringer UMC22** is a low-cost, USB-powered audio interface with one comb
   columns={["Spec", "Behringer UMC22"]}
   rows={[
     ["Format", "2x2 USB audio interface"],
-    ["Inputs", "1 combo input (XLR, ¼\" TRS or ¼\" TS) with a Midas-designed mic preamp, 1 ¼\" TRS instrument input"],
-    ["Sample rate", "48kHz (per the product description; the listing's spec table shows 96kHz)"],
-    ["Mic features", "+48V phantom power switch on the rear"],
+    ["Inputs", "1 XLR/TRS combo input (mic/line) with a Midas-designed preamp, 1 ¼\" TRS instrument input"],
+    ["Input impedance", "Mic 3kΩ, instrument 1MΩ"],
+    ["Max input level", "Mic +2dBu, line +22dBu, instrument +2dBu"],
+    ["Sample rates", "32, 44.1 and 48kHz"],
+    ["Dynamic range", "100dB, A-weighted"],
+    ["Frequency response", "10Hz to 30kHz (0/-3dB, system)"],
+    ["Mic features", "+48V phantom power, switchable (switch on the rear)"],
     ["Metering", "Status and signal/clip LEDs"],
-    ["Outputs", "2x ¼\" TRS monitor outputs, headphone output"],
+    ["Outputs", "2x ¼\" TRS line outputs, 1x ¼\" stereo headphone output"],
     ["Monitoring", "Direct monitor switch"],
-    ["Connection", "USB"],
-    ["Power", "USB bus-powered"],
-    ["Compatibility", "Mac and Windows (per the product description)"],
+    ["Connection", "USB 1.1, type B"],
+    ["Power", "USB bus-powered, 2.5W max"],
+    ["Compatibility", "Mac OS X, Windows XP or higher"],
+    ["Drivers", "Mac: none needed (CoreAudio). Windows: download from behringer.com"],
     ["Weight", "1 lb (as listed on Amazon)"],
     ["Warranty", "See Behringer's warranty page (linked from the Amazon listing)"],
   ]}
@@ -117,11 +122,12 @@ The **Behringer UMC22** is a low-cost, USB-powered audio interface with one comb
 
 ## Software and drivers
 
-- Owners say Behringer's website offers ASIO4ALL, a generic Windows driver, rather than a dedicated UMC22 driver. Some found an older Behringer driver (one owner names version 2.8.40) on forums or through YouTube links.
+- Behringer's specs say Mac needs no driver (CoreAudio is supported) and that Windows drivers are available to download from behringer.com.
+- Owners, though, say Behringer's website offers ASIO4ALL, a generic Windows driver, rather than a dedicated UMC22 driver. Some found an older Behringer driver (one owner names version 2.8.40) on forums or through YouTube links.
 - On Windows, a generic USB audio driver installs when you plug it in. Two owners say it's fine for a mic on its own. Others couldn't use the instrument input with it, and one says it causes popping and clicking.
 - Two older reviews mention free software. One owner (2016) got a Tracktion DAW code after registering, though it took several emails. Another (2018) mentions free multitrack software from Behringer.
 
-*Driver and software details come from owner reviews, not from Behringer, and may have changed.*
+*Apart from Behringer's spec line above, driver and software details come from owner reviews and may have changed.*
 
 ## What owners like
 
