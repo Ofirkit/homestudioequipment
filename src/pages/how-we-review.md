@@ -19,6 +19,8 @@ Each review draws on two sources:
 
 Reading dozens of reviews for every product takes hours. AI lets us go through all of them and spot what owners mention again and again, so you get the patterns without doing that research yourself.
 
+Every review is checked by a person before it's published.
+
 ## What we don't do
 
 - **We don't claim to have tested a product unless we have.** If a review is based on owner feedback, we say so at the top of the post.
