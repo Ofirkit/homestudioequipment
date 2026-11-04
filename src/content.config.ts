@@ -26,6 +26,8 @@ const posts = defineCollection({
       heroAlt: z.string().optional(),
       /** Credit line under the hero image, e.g. "Amazon". */
       heroCredit: z.string().optional(),
+      /** Zoom for the hero and card image, for photos with lots of empty space around the product (e.g. 1.5). */
+      imageZoom: z.number().min(1).max(3).optional(),
       draft: z.boolean().default(false),
       /** Main product ASIN, for single-product reviews. */
       asin: z.string().optional(),
