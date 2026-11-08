@@ -95,6 +95,9 @@ main.wrap { padding-block: 2rem 4rem; min-height: 60vh; }
 .breadcrumbs li + li::before { content: '>'; margin: 0 0.9rem; color: var(--muted); }
 .prose { max-width: var(--prose); }
 .prose h2 + p { margin-top: 0.5rem; }
+.prose h3 { margin-top: 2rem; }
+/* A standalone "Check price" button: keep clear of the heading that follows. */
+.prose > .amazon-btn { margin: 0.25rem 0 1.25rem; }
 .post .faq { max-width: var(--prose); }
 .quick-verdict { background: var(--surface); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0; }
 .quick-verdict h2 { margin-top: 0; font-size: 1.25rem; }
