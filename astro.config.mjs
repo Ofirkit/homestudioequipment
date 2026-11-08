@@ -3,6 +3,8 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { readdirSync, readFileSync } from 'node:fs';
+import { satteri } from '@astrojs/markdown-satteri';
+import { externalLinks } from './src/lib/external-links.mjs';
 
 // Categories that have at least one published post. Empty category pages are
 // noindexed (see category/[category].astro), so keep them out of the sitemap too.
@@ -40,5 +42,6 @@ export default defineConfig({
       },
     }),
   ],
+  markdown: { processor: satteri({ hastPlugins: [externalLinks] }) },
   build: { inlineStylesheets: 'auto' },
 });
