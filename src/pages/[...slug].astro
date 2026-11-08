@@ -26,6 +26,8 @@ const cat = getCategory(category)!;
 const path = `/${post.id}/`;
 const pageUrl = new URL(path, Astro.site).toString();
 const heroSrc = typeof heroImage === 'string' ? heroImage : heroImage?.src;
+const heroWidth = typeof heroImage === 'object' ? heroImage.width : undefined;
+const heroHeight = typeof heroImage === 'object' ? heroImage.height : undefined;
 
 const crumbs = [
   { name: 'Home', path: '/' },
@@ -45,6 +47,8 @@ const jsonLd = [
   ogType="article"
   image={heroSrc}
   imageAlt={heroAlt}
+  imageWidth={heroWidth}
+  imageHeight={heroHeight}
   jsonLd={jsonLd}
   published={pubDate}
   modified={updated}

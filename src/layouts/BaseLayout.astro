@@ -11,6 +11,9 @@ interface Props {
   image?: string;
   /** Alt text for the social sharing image. */
   imageAlt?: string;
+  /** Pixel size of `image`, when known. Falls back to the 1200x630 default image size. */
+  imageWidth?: number;
+  imageHeight?: number;
   jsonLd?: object[];
   noindex?: boolean;
   published?: Date;
@@ -23,6 +26,8 @@ const {
   ogType = 'website',
   image,
   imageAlt,
+  imageWidth,
+  imageHeight,
   jsonLd = [],
   noindex = false,
   published,
@@ -34,6 +39,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 const suffixed = `${title} | ${SITE.name}`;
 const fullTitle = title === SITE.name || suffixed.length > 60 ? title : suffixed;
 const ogImage = new URL(image ?? SITE.ogImage, Astro.site).toString();
+const ogWidth = image ? imageWidth : 1200;
+const ogHeight = image ? imageHeight : 630;
 const schemas = [organization(), website(), ...jsonLd];
 const year = new Date().getFullYear();
 // Only link categories that have published posts; empty ones are noindexed placeholders.
@@ -64,8 +71,8 @@ const navCategories = await getLiveCategories();
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:alt" content={imageAlt ?? `${SITE.name}: home studio gear reviews`} />
-    {!image && <meta property="og:image:width" content="1200" />}
-    {!image && <meta property="og:image:height" content="630" />}
+    {ogWidth && <meta property="og:image:width" content={String(ogWidth)} />}
+    {ogHeight && <meta property="og:image:height" content={String(ogHeight)} />}
     {published && <meta property="article:published_time" content={published.toISOString()} />}
     {modified && <meta property="article:modified_time" content={modified.toISOString()} />}
     <meta name="twitter:card" content="summary_large_image" />
