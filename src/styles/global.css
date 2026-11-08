@@ -103,6 +103,14 @@ main.wrap { padding-block: 2rem 4rem; min-height: 60vh; }
 .amazon-btn { display: inline-block; background: var(--cta); color: var(--cta-text); font-weight: 700; text-decoration: none; padding: 0.6rem 1.1rem; border-radius: 999px; white-space: nowrap; }
 .amazon-btn:hover { background: #fbbf24; color: var(--cta-text); }
 .amazon-btn:focus-visible { outline: 3px solid var(--accent-strong); outline-offset: 2px; }
+.amazon-btn--sm { padding: 0.35rem 0.85rem; font-size: 0.875rem; }
+
+.buy-list { list-style: none; padding: 0; margin: 1rem 0 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.buy-list li { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.7rem 1rem; margin: 0; }
+.buy-list li + li { border-top: 1px solid var(--border); }
+.buy-list-text { display: flex; flex-direction: column; min-width: 0; }
+.buy-list-note { color: var(--muted); font-size: 0.9rem; line-height: 1.45; }
+.buy-list .amazon-btn { flex-shrink: 0; }
 
 /* Product box */
 .product-box { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; margin: 1.75rem 0; }

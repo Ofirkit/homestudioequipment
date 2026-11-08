@@ -9,9 +9,11 @@ interface Props {
   /** Product name, used for the search fallback and the accessible label. */
   name?: string;
   label?: string;
+  /** "sm" for a compact button in lists. */
+  size?: 'md' | 'sm';
 }
 
-const { href, asin, name, label = 'Check price on Amazon' } = Astro.props;
+const { href, asin, name, label = 'Check price on Amazon', size = 'md' } = Astro.props;
 
 if (!href && !asin && !name) throw new Error('AmazonButton needs an `href`, `asin`, or `name`.');
 
@@ -25,7 +27,7 @@ if (!link) {
 ---
 
 <a
-  class="amazon-btn"
+  class:list={['amazon-btn', { 'amazon-btn--sm': size === 'sm' }]}
   href={link}
   target="_blank"
   rel="sponsored nofollow noopener"

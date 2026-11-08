@@ -34,6 +34,7 @@ faq:
 
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import AmazonButton from '../../components/AmazonButton.astro';
+import BuyList from '../../components/BuyList.astro';
 
 > **How we wrote this:** This guide is built from the official system requirements published by Ableton, Image-Line, PreSonus, Steinberg, Avid and Cockos, from hardware guidance published by Native Instruments, Steinberg, Focusrite, Sweetwater and Puget Systems, and from the manufacturer spec sheets and Amazon listings of each part named below. We haven't tested these machines or parts ourselves, and this guide does not use owner reviews. [How we review](/how-we-review/)
 
@@ -169,14 +170,16 @@ Two things the spec sheets make clear. None of the AM5 Ryzen chips above ships w
 
 Intel's newer Core Ultra 7 270K Plus (8 P + 16 E cores, LGA1851) is an alternative to the 14700K; ASUS notes it needs Windows 11 25H2 or later for full compatibility.
 
-- Core i5-12400 <AmazonButton asin="B09NMPD8V2" label="Check price" />
-- Ryzen 5 9600X <AmazonButton asin="B0D6NN6TM7" label="Check price" />
-- Core i5-14400 <AmazonButton asin="B0CQ1M1YXM" label="Check price" />
-- Ryzen 7 9700X <AmazonButton asin="B0D6NMDNNX" label="Check price" />
-- Core i7-14700K <AmazonButton asin="B0CGJ41C9W" label="Check price" />
-- Core Ultra 7 270K Plus <AmazonButton asin="B0GMLJCBBM" label="Check price" />
-- Ryzen 9 9900X <AmazonButton asin="B0D6NN87T8" label="Check price" />
-- Core i9-14900K <AmazonButton asin="B0CGJDKLB8" label="Check price" />
+<BuyList items={[
+  { name: "Core i5-12400", asin: "B09NMPD8V2" },
+  { name: "Ryzen 5 9600X", asin: "B0D6NN6TM7" },
+  { name: "Core i5-14400", asin: "B0CQ1M1YXM" },
+  { name: "Ryzen 7 9700X", asin: "B0D6NMDNNX" },
+  { name: "Core i7-14700K", asin: "B0CGJ41C9W" },
+  { name: "Core Ultra 7 270K Plus", asin: "B0GMLJCBBM" },
+  { name: "Ryzen 9 9900X", asin: "B0D6NN87T8" },
+  { name: "Core i9-14900K", asin: "B0CGJDKLB8" },
+]} />
 
 ### Coolers
 
@@ -193,26 +196,32 @@ For the 65 W chips (9600X, 9700X, 12400, 14400): a single- or dual-tower air coo
   ]}
 />
 
-- Thermalright Peerless Assassin 120 SE <AmazonButton asin="B09LGY38L4" label="Check price" />
-- Noctua NH-U12S redux <AmazonButton asin="B08WPDD6GD" label="Check price" />
-- be quiet! Dark Rock Pro 5 <AmazonButton asin="B0CJY3DYQ3" label="Check price" />
-- Noctua NH-D15 <AmazonButton asin="B00L7UZMAK" label="Check price" />
-- Arctic Liquid Freezer III 240 <AmazonButton asin="B0CKXCFLPN" label="Check price" />
+<BuyList items={[
+  { name: "Thermalright Peerless Assassin 120 SE", asin: "B09LGY38L4" },
+  { name: "Noctua NH-U12S redux", asin: "B08WPDD6GD" },
+  { name: "be quiet! Dark Rock Pro 5", asin: "B0CJY3DYQ3" },
+  { name: "Noctua NH-D15", asin: "B00L7UZMAK" },
+  { name: "Arctic Liquid Freezer III 240", asin: "B0CKXCFLPN" },
+]} />
 
 ### RAM
 
 All three kits are DDR5 desktop DIMMs with lifetime warranties. Corsair's listing states the requirement as a 600-series or newer chipset, an Intel 12th-gen Core or newer, or a Ryzen 7000 or newer, which covers every CPU above.
 
-- **Tight budget (Intel only):** Kingston FURY Beast 16 GB (2 × 8 GB) DDR5-5200 CL40, Intel XMP 3.0. No AMD EXPO profile, so pair it with the Intel budget CPUs. <AmazonButton asin="B09T97ZSVB" label="Check price" />
-- **Minimum sensible and sweet spot:** Corsair Vengeance 32 GB (2 × 16 GB) DDR5-6000 CL30, AMD EXPO and Intel XMP, 35 mm tall. One kit for both AMD and Intel builds. <AmazonButton asin="B0CBRJ63RT" label="Check price" />
-- **Room to grow:** Corsair Vengeance 64 GB (2 × 32 GB) DDR5-6000 CL30, EXPO and XMP. More than any maker recommends for a beginner; it pays off with large sample libraries. <AmazonButton asin="B0C5M7J967" label="Check price" />
+<BuyList items={[
+  { name: "Kingston FURY Beast 16 GB (2 × 8 GB) DDR5-5200 CL40", note: "Tight budget, Intel only. Intel XMP 3.0 but no AMD EXPO profile, so pair it with the Intel budget CPUs.", asin: "B09T97ZSVB" },
+  { name: "Corsair Vengeance 32 GB (2 × 16 GB) DDR5-6000 CL30", note: "Minimum sensible and sweet spot. AMD EXPO and Intel XMP, 35 mm tall. One kit for both AMD and Intel builds.", asin: "B0CBRJ63RT" },
+  { name: "Corsair Vengeance 64 GB (2 × 32 GB) DDR5-6000 CL30", note: "Room to grow. EXPO and XMP. More than any maker recommends for a beginner; it pays off with large sample libraries.", asin: "B0C5M7J967" },
+]} />
 
 ### SSDs
 
 Kingston NV3, PCIe 4.0 x4 NVMe, M.2 2280. The 1 TB model is rated 6,000/4,000 MB/s with 320 TB of endurance; the 2 TB model 6,000/5,000 MB/s with 640 TB. Warranty terms differ between Kingston's site and the Amazon listing; check the warranty details on the Amazon listing before you buy.
 
-- Kingston NV3 1 TB (system drive, all tiers) <AmazonButton asin="B0DBR3DZWG" label="Check price" />
-- Kingston NV3 2 TB (samples and projects, sweet spot and up) <AmazonButton asin="B0DBR6TRZQ" label="Check price" />
+<BuyList items={[
+  { name: "Kingston NV3 1 TB", note: "System drive, all tiers", asin: "B0DBR3DZWG" },
+  { name: "Kingston NV3 2 TB", note: "Samples and projects, sweet spot and up", asin: "B0DBR6TRZQ" },
+]} />
 
 ### Motherboards
 
@@ -230,10 +239,12 @@ All four are ATX boards with DDR5, at least three M.2 slots, HDMI and DisplayPor
 
 The B760 board has five rear USB-A ports, one short of our target; its USB-C port with a C-to-A cable or a front-panel port covers a sixth device. ASUS also sells a DDR4 version of the B760-Plus under a near-identical name; the link below is the DDR5 one.
 
-- GIGABYTE B650 AORUS Elite AX <AmazonButton asin="B0BH7GTY9C" label="Check price" />
-- ASUS TUF Gaming B760-Plus WiFi (DDR5) <AmazonButton asin="B0BZT9KYNB" label="Check price" />
-- ASUS TUF Gaming Z790-Plus WiFi <AmazonButton asin="B0BQD58D96" label="Check price" />
-- ASUS TUF Gaming B860-Plus WiFi <AmazonButton asin="B0DFPNHCMX" label="Check price" />
+<BuyList items={[
+  { name: "GIGABYTE B650 AORUS Elite AX", asin: "B0BH7GTY9C" },
+  { name: "ASUS TUF Gaming B760-Plus WiFi (DDR5)", asin: "B0BZT9KYNB" },
+  { name: "ASUS TUF Gaming Z790-Plus WiFi", asin: "B0BQD58D96" },
+  { name: "ASUS TUF Gaming B860-Plus WiFi", asin: "B0DFPNHCMX" },
+]} />
 
 ### Case
 

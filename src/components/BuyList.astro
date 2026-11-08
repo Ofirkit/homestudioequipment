@@ -1,0 +1,24 @@
+---
+import AmazonButton from './AmazonButton.astro';
+
+interface Props {
+  /** One row per product: name, optional detail line, and the ASIN for the Amazon button. */
+  items: { name: string; note?: string; asin: string }[];
+}
+
+const { items } = Astro.props;
+---
+
+<ul class="buy-list">
+  {
+    items.map(({ name, note, asin }) => (
+      <li>
+        <span class="buy-list-text">
+          <strong>{name}</strong>
+          {note && <span class="buy-list-note">{note}</span>}
+        </span>
+        <AmazonButton asin={asin} name={name} label="Check price" size="sm" />
+      </li>
+    ))
+  }
+</ul>
