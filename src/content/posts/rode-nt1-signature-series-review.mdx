@@ -8,6 +8,9 @@ updatedDate: 2026-11-08
 author: "Ophir"
 category: "microphones"
 asin: "B0CKVD62NX"
+heroImage: "../../assets/products/rode-nt1-signature-series.webp"
+heroAlt: "RØDE NT1 Signature Series condenser microphone in its shock mount with pop filter"
+heroCredit: "RØDE"
 faq:
   - q: "Can I plug the NT1 Signature straight into my computer?"
     a: "No. It's an XLR mic that needs 48V phantom power, so you need an audio interface that supplies it. Several owners say they didn't realize this and had to buy an interface or extra cables separately."
@@ -38,6 +41,7 @@ faq:
 import ProductBox from '../../components/ProductBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import AmazonButton from '../../components/AmazonButton.astro';
+import nt1Image from '../../assets/products/rode-nt1-signature-series.webp';
 
 > **How we wrote this:** This review is based on RØDE's official product information and user guide and an AI-assisted analysis of owner reviews on Amazon, checked by Ophir before publishing. We haven't tested this unit ourselves. [How we review](/how-we-review/)
 
@@ -48,6 +52,8 @@ The **RØDE NT1 Signature Series** is a large-diaphragm XLR condenser mic for vo
 <ProductBox
   name="RØDE NT1 Signature Series"
   asin="B0CKVD62NX"
+  image={nt1Image}
+  imageAlt="RØDE NT1 Signature Series condenser microphone in its shock mount with pop filter"
   verdict="A good-sounding first studio condenser with useful accessories, but with real reports of units failing early."
   pros={["Clear, warm sound for many owners", "Very low self-noise (4dBA)", "Shock mount, pop filter and 6m XLR cable included", "10-year warranty with registration", "Feels solid to many owners"]}
   cons={["Many reports of units failing after minutes to months", "Loose or raised XLR pins on some units", "Needs an audio interface with phantom power", "No pad or low-cut switch", "Some owners hear little difference from cheaper mics"]}
