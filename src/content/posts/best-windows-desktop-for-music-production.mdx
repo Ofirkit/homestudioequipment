@@ -1,0 +1,293 @@
+---
+title: "Best Windows Desktop for Music Production: A Beginner's Buying Guide"
+subtitle: "What the DAW makers actually ask for, and the parts that meet it."
+kind: "Buying Guide"
+description: "Ableton, FL Studio, Cubase, Studio One and Pro Tools publish what they need. Here's how to turn that into a Windows desktop you can buy or build, in three price tiers."
+pubDate: 2026-11-08
+updatedDate: 2026-11-08
+author: "Ophir"
+category: "computers"
+heroImage: "../../assets/products/best-windows-desktop-for-music-production.webp"
+heroAlt: "Best Windows Desktop for Music Production: what actually matters when you buy your first studio PC"
+faq:
+  - q: "Do I need a Mac for music production?"
+    a: "No. Ableton Live, FL Studio, Studio One, Cubase, Pro Tools and REAPER all run on Windows. The requirements in this guide come from each maker's own Windows system-requirements page."
+  - q: "How much RAM do I need?"
+    a: "16 GB to start. Cubase 16 and Pro Tools list 16 GB as their minimum, and Ableton recommends 16 GB. Ableton says 32 GB or more if you plan on large sample libraries."
+  - q: "Is a gaming PC good for music production?"
+    a: "Usually, yes. Its CPU, RAM and SSD tend to be right, and the graphics card is simply wasted: Native Instruments calls the GPU the least relevant component for real-time audio. Check the case and fan noise, since Puget Systems says low noise matters when recording."
+  - q: "Intel or AMD?"
+    a: "Either, with one exception. Ableton lists both, and Sweetwater says both are fine. Avid states that AMD processors are not approved to run Pro Tools, so Pro Tools users should buy Intel."
+  - q: "Do I need a graphics card?"
+    a: "Only to drive your monitors. Native Instruments, Ableton and Puget Systems all rank the GPU last. Every CPU in this guide except where noted has integrated graphics, so a separate card is optional."
+  - q: "SSD or hard drive?"
+    a: "SSD. Ableton says SSDs load projects faster and reduce dropouts when streaming samples. Steinberg calls SSDs the superior choice in most scenarios. Puget Systems notes hard drives are often the loudest part of a computer."
+  - q: "Can I use the computer's built-in audio jack?"
+    a: "You can, but Ableton recommends an ASIO audio interface and says external interfaces allow lower buffer sizes and lower latency than built-in audio. Steinberg says drivers must be ASIO 2.0 compatible for very low latency."
+  - q: "Will Windows 11 work with my DAW?"
+    a: "Yes. Steinberg recommends Windows 11 64-bit, and the current Pro Tools release is for Windows 11 only. Microsoft ended Windows 10 support on October 14, 2025."
+  - q: "Can I use a mini PC or a Snapdragon (Arm) PC?"
+    a: "Arm support is mixed: Image-Line does not test or support FL Studio on Arm, Ableton runs through Prism emulation, Cubase 16 lists Windows on Arm, and Pro Tools requires Intel. For a first machine, an Intel or AMD desktop is the safe choice."
+  - q: "Why does my audio crackle on a new PC?"
+    a: "The makers' own fixes: use the interface's ASIO driver (Ableton calls ASIO the best performing driver type on Windows), set the High Performance power plan, disable USB selective suspend, update the BIOS and drivers, and plug the interface straight into the PC. Focusrite says USB hubs are known to cause issues with audio devices."
+---
+
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import AmazonButton from '../../components/AmazonButton.astro';
+
+> **How we wrote this:** This guide is built from the official system requirements published by Ableton, Image-Line, PreSonus, Steinberg, Avid and Cockos, from hardware guidance published by Native Instruments, Steinberg, Focusrite, Sweetwater and Puget Systems, and from the manufacturer spec sheets and Amazon listings of each part named below. We haven't tested these machines or parts ourselves, and this guide does not use owner reviews. [How we review](/how-we-review/)
+
+## Quick verdict
+
+A beginner's Windows desktop for music production needs a current-generation 6- to 8-core CPU, 16 GB of RAM (32 GB if you'll use sample libraries), an NVMe SSD and a quiet case. The graphics card barely matters. Every DAW maker's own requirements point the same way, and the three builds and three prebuilt desktops below are chosen to meet them.
+
+**If you want one answer:** the sweet-spot build, a Ryzen 7 9700X or Core i7-14700K with 32 GB of DDR5 and a 1 TB NVMe drive. If you plan to run Pro Tools, take the Intel version: Avid does not approve AMD processors.
+
+## What the DAW makers require on Windows
+
+The published minimums are low. The makers' "recommended" lines are the useful numbers: 16 GB of RAM, six or more cores, an SSD and an ASIO audio interface.
+
+<ComparisonTable
+  columns={["DAW", "Windows", "CPU minimum", "CPU recommended", "RAM", "Storage"]}
+  rows={[
+    ["Ableton Live 12", "Win 10 22H2 or Win 11 22H2+", "5th-gen Core i5 or Ryzen with AVX2", "6–12 cores: Core i7/i9 (8th gen+) or Ryzen 7/9", "8 GB min; 16 GB recommended, 32 GB+ for large sample libraries", "6 GB + up to 76 GB sounds; SSD system drive"],
+    ["FL Studio", "Win 10 or 11", "2 GHz CPU with SSE2", "Quad-core", "4 GB min; 8–16 GB recommended", "4 GB; SSD recommended"],
+    ["Studio One Pro 7", "Win 10 22H2 or Win 11 22H2+", "Core i3 / AMD A10", "—", "8 GB min; 16 GB+ recommended", "40 GB"],
+    ["Cubase 16", "Win 11 25H2+ or Win 10 22H2+", "Core i5 8th gen, Ryzen 3000, or Windows on Arm; 4+ cores", "—", "16 GB min", "1.5 GB core; 89 GB full"],
+    ["Pro Tools", "Win 11 24H2 / 25H2", "64-bit Intel Core (i3 2 GHz+ recommended); AMD not approved", "—", "16 GB min", "15 GB; dedicated audio drive"],
+    ["REAPER 7", "Windows XP through 11", "Not specified", "—", "Not specified", "~15 MB installer"],
+  ]}
+/>
+
+*Sources: each maker's system-requirements page, linked at the end of this guide. Ableton also notes that Live 12 needs the AVX2 instruction set, so very old or very cheap CPUs without it will not launch it.*
+
+## What actually matters
+
+### CPU: speed and cores, from a recent generation
+
+Ableton's advice is "the fastest processor you can afford, with as many cores as possible," and it says single-core speed is just as important as core count because signal paths merge at summing points where parallel processing has to wait. On Intel's hybrid chips, Ableton processes audio only on the Performance cores, so Efficiency cores don't add audio capacity.
+
+Steinberg says a newer processor generation is usually preferable and that going beyond 32 logical cores gives no significant benefit. Native Instruments suggests at least four cores with hyperthreading, and eight for larger sessions. Sweetwater's floor is a 64-bit Core i5 or Ryzen 5 3600.
+
+For a beginner that means a current 6- to 8-core desktop chip: Ryzen 5/7 or Core i5/i7. Pro Tools users: Intel only.
+
+### RAM: 16 GB is the floor, 32 GB is comfortable
+
+Cubase 16 and Pro Tools both list 16 GB as the minimum. Ableton recommends 16 GB and says 32 GB or more for large projects with extensive sample libraries; when RAM runs out, Live swaps to disk, which causes dropouts and clicks. Native Instruments says to use matched modules (two of the same size) rather than mixing sizes.
+
+### Storage: SSD only, ideally NVMe
+
+Ableton wants an SSD as the system drive, says SSDs reduce dropouts when streaming samples, and asks for at least 10% free space. Steinberg calls SSDs the superior choice and the first choice for sample streaming. Puget Systems uses SSDs only, prefers M.2 NVMe, and recommends two drives: one for Windows and applications, one for projects and samples. Focusrite says to keep more than 20% of the boot drive free.
+
+A 1 TB NVMe drive covers Windows, your DAW and its bundled content. A second drive can come later.
+
+### Graphics: nearly irrelevant
+
+Native Instruments calls the GPU the least relevant component for real-time audio. Ableton lists a dedicated GPU as optional, mainly for video work. Puget Systems ranks it among the least important parts but notes a card is still useful for multiple monitors. Integrated graphics on a current CPU is enough.
+
+### Audio: use an external ASIO interface
+
+Ableton calls ASIO the best performing audio driver type on Windows and says external interfaces with optimized drivers allow lower buffer sizes and lower latency than built-in audio. Steinberg requires ASIO 2.0 compatible drivers for very low latency. Puget Systems recommends an external interface over an internal sound card, partly to keep audio away from the noisy inside of the PC. If you don't have one yet, see our [Focusrite Scarlett Solo 3rd Gen review](/focusrite-scarlett-solo-3rd-gen-review/).
+
+### USB ports
+
+Focusrite says USB hubs are known to cause issues with audio devices and to connect the interface directly to the computer. Count the rear USB-A ports: an interface, a MIDI keyboard, a mouse, a keyboard and a licence dongle add up fast. We aimed for six or more.
+
+### Noise
+
+Puget Systems says low noise is extremely important, especially when recording music, and that hard drives are often the loudest part of a computer. Native Instruments pairs an 8-core CPU with an efficient heatsink and a case that cools well. Steinberg says a CPU needs stable clocks for low-latency work, which means the cooler has to cope.
+
+### Operating system: Windows 11, 64-bit
+
+Microsoft ended Windows 10 support on October 14, 2025. Steinberg recommends Windows 11 64-bit, and the current Pro Tools release is for Windows 11 only. Sweetwater says Windows Home is sufficient for recording.
+
+## Three spec tiers
+
+<ComparisonTable
+  columns={["Component", "Minimum sensible", "Sweet spot", "Room to grow"]}
+  rows={[
+    ["CPU", "6-core current-gen Ryzen 5 / Core i5", "8-core Ryzen 7 / Core i7", "12–16-core Ryzen 9 / Core i9"],
+    ["RAM", "16 GB DDR5", "32 GB DDR5", "64 GB DDR5"],
+    ["System drive", "512 GB–1 TB NVMe SSD", "1 TB NVMe SSD", "1 TB NVMe + 2 TB SSD for samples"],
+    ["Graphics", "Integrated", "Integrated or entry card", "Quiet card for 2–3 monitors"],
+    ["Rear USB-A", "6", "6+", "6+"],
+    ["OS", "Windows 11 Home 64-bit", "Windows 11 Home 64-bit", "Windows 11 Home or Pro"],
+  ]}
+/>
+
+*Our synthesis of the makers' figures above. The tiers are ours; the numbers inside them are theirs.*
+
+## Prebuilt desktops that meet the tiers
+
+Gaming PCs hit these specs at the lowest prices because of the bundled graphics card, which does nothing for audio. Specs below are from the Amazon listings at the time of writing; we did not test these machines and did not use owner reviews.
+
+### Minimum sensible: CyberPowerPC Gamer Master GMA2900A3
+
+AMD Ryzen 7 8700F (8 cores, AM5), 16 GB DDR5-4800, 1 TB PCIe 4.0 NVMe SSD, NVIDIA RTX 5060 Ti 8 GB, 6 rear USB-A ports plus 2 USB-C, Windows 11 Home, 1-year parts and labor warranty.
+
+It meets the 16 GB floor from Cubase 16, Pro Tools and Ableton, and its 8-core CPU sits in Ableton's recommended Ryzen 7 band. Two things to know: the 8700F has no integrated graphics, so the graphics card has to stay in, and the listing does not say whether the 16 GB is one module or two.
+
+<AmazonButton asin="B0DXVK2SLY" label="Check price on Amazon" />
+
+### Sweet spot (AMD): Skytech Gaming Crystal ST-CRYSTAL-2766-B-AM
+
+AMD Ryzen 7 7700 (8 cores, AM5), 32 GB DDR5-5600, 1 TB NVMe SSD, NVIDIA RTX 5060 Ti 8 GB, air cooler, Windows 11 Home, 1-year parts and labor warranty with lifetime technical support.
+
+32 GB matches Ableton's sample-library recommendation. The listing says the graphics card brand may vary and "additional ports may vary," and it gives no USB count, so treat the spec sheet as a floor and check the ports on arrival.
+
+<AmazonButton asin="B0GDF41DN1" label="Check price on Amazon" />
+
+### Sweet spot (Intel, for Pro Tools): iBUYPOWER EBI7N5704
+
+Intel Core i7-14700F (8 P-cores + 12 E-cores), 32 GB DDR5-4800 as 2 × 16 GB, 1 TB NVMe SSD, NVIDIA RTX 5070 12 GB, 6 × USB 3.1 ports, Windows 11 Home, 1-year manufacturer warranty.
+
+This is the prebuilt for Pro Tools users, since Avid does not approve AMD processors. Its 8 P-cores give it the same Ableton audio capacity as the Core i7-14700K in the build list below. The 14700F has no integrated graphics, so the card stays in. It is also the only one of the three that states its RAM is a matched pair.
+
+<AmazonButton asin="B0GP2ZPSLJ" label="Check price on Amazon" />
+
+### Room to grow
+
+We did not find a prebuilt on Amazon that pairs a 12-core-or-better CPU with 64 GB of RAM at a reasonable spec. For that tier, building it yourself or ordering from a configure-to-order builder is the better route.
+
+## Build it yourself
+
+Every part below was checked against the requirements above and against the manufacturer's spec sheet. Buying parts separately gets you a longer warranty on most of them (3 to 10 years on the parts below, against 1 year on the prebuilts) and no graphics card you don't need.
+
+### CPUs
+
+<ComparisonTable
+  columns={["Tier", "AMD (AM5)", "Intel (LGA1700)"]}
+  rows={[
+    ["Tight budget", "—", "Core i5-12400: 6 cores, 65 W, cooler and graphics included"],
+    ["Minimum sensible", "Ryzen 5 9600X: 6 cores, 65 W, boost 5.4 GHz, graphics included, no cooler", "Core i5-14400: 6 P + 4 E cores, 65 W, cooler and graphics included"],
+    ["Sweet spot", "Ryzen 7 9700X: 8 cores, 65 W, boost 5.5 GHz, graphics included, no cooler", "Core i7-14700K: 8 P + 12 E cores, 125 W, boost 5.6 GHz, graphics included, no cooler"],
+    ["Room to grow", "Ryzen 9 9900X: 12 cores, 120 W, boost 5.6 GHz, graphics included, no cooler", "Core i9-14900K: 8 P + 16 E cores, 125 W, boost up to 6.0 GHz, graphics included, no cooler"],
+  ]}
+/>
+
+Two things the spec sheets make clear. None of the AM5 Ryzen chips above ships with a cooler (AMD lists "Thermal Solution: Not Included"), so every AMD build needs one from the list below. And the Core i7-14700K and Core i9-14900K both have 8 Performance cores; since Ableton processes audio only on P-cores, the i9 buys more Efficiency cores and a higher clock, not more Ableton headroom.
+
+Intel's newer Core Ultra 7 270K Plus (8 P + 16 E cores, LGA1851) is an alternative to the 14700K; ASUS notes it needs Windows 11 25H2 or later for full compatibility.
+
+- Core i5-12400 <AmazonButton asin="B09NMPD8V2" label="Check price" />
+- Ryzen 5 9600X <AmazonButton asin="B0D6NN6TM7" label="Check price" />
+- Core i5-14400 <AmazonButton asin="B0CQ1M1YXM" label="Check price" />
+- Ryzen 7 9700X <AmazonButton asin="B0D6NMDNNX" label="Check price" />
+- Core i7-14700K <AmazonButton asin="B0CGJ41C9W" label="Check price" />
+- Core Ultra 7 270K Plus <AmazonButton asin="B0GMLJCBBM" label="Check price" />
+- Ryzen 9 9900X <AmazonButton asin="B0D6NN87T8" label="Check price" />
+- Core i9-14900K <AmazonButton asin="B0CGJDKLB8" label="Check price" />
+
+### Coolers
+
+For the 65 W chips (9600X, 9700X, 12400, 14400): a single- or dual-tower air cooler. For the 120–125 W chips (9900X, 14700K, 14900K, 270K Plus): a large dual-tower or a 240 mm all-in-one. Each maker states its own noise figure and they are not measured the same way, so we don't rank them by quietness.
+
+<ComparisonTable
+  columns={["Cooler", "Sockets", "Rated for", "Height", "Warranty", "Fits"]}
+  rows={[
+    ["Thermalright Peerless Assassin 120 SE", "LGA1700/1851, AM4/AM5", "Not stated by maker", "155 mm", "Not stated", "65 W chips"],
+    ["Noctua NH-U12S redux", "LGA1700/1851, AM4/AM5", "Noctua NSPR 129", "158 mm", "6 years", "65 W chips"],
+    ["be quiet! Dark Rock Pro 5", "LGA1700/1851, AM4/AM5", "270 W TDP", "168 mm", "3 years", "120–125 W chips"],
+    ["Noctua NH-D15", "LGA1700/1851, AM4/AM5", "Noctua NSPR 183", "168 mm", "6 years", "120–125 W chips"],
+    ["Arctic Liquid Freezer III 240 (AIO)", "LGA1700/1851, AM4/AM5", "Not stated by maker", "240 mm radiator", "6 years", "120–125 W chips; case needs a 240 mm mount"],
+  ]}
+/>
+
+- Thermalright Peerless Assassin 120 SE <AmazonButton asin="B09LGY38L4" label="Check price" />
+- Noctua NH-U12S redux <AmazonButton asin="B08WPDD6GD" label="Check price" />
+- be quiet! Dark Rock Pro 5 <AmazonButton asin="B0CJY3DYQ3" label="Check price" />
+- Noctua NH-D15 <AmazonButton asin="B00L7UZMAK" label="Check price" />
+- Arctic Liquid Freezer III 240 <AmazonButton asin="B0CKXCFLPN" label="Check price" />
+
+### RAM
+
+All three kits are DDR5 desktop DIMMs with lifetime warranties. Corsair's listing states the requirement as a 600-series or newer chipset, an Intel 12th-gen Core or newer, or a Ryzen 7000 or newer, which covers every CPU above.
+
+- **Tight budget (Intel only):** Kingston FURY Beast 16 GB (2 × 8 GB) DDR5-5200 CL40, Intel XMP 3.0. No AMD EXPO profile, so pair it with the Intel budget CPUs. <AmazonButton asin="B09T97ZSVB" label="Check price" />
+- **Minimum sensible and sweet spot:** Corsair Vengeance 32 GB (2 × 16 GB) DDR5-6000 CL30, AMD EXPO and Intel XMP, 35 mm tall. One kit for both AMD and Intel builds. <AmazonButton asin="B0CBRJ63RT" label="Check price" />
+- **Room to grow:** Corsair Vengeance 64 GB (2 × 32 GB) DDR5-6000 CL30, EXPO and XMP. More than any maker recommends for a beginner; it pays off with large sample libraries. <AmazonButton asin="B0C5M7J967" label="Check price" />
+
+### SSDs
+
+Kingston NV3, PCIe 4.0 x4 NVMe, M.2 2280. The 1 TB model is rated 6,000/4,000 MB/s with 320 TB of endurance; the 2 TB model 6,000/5,000 MB/s with 640 TB. Warranty terms differ between Kingston's site and the Amazon listing; check the warranty details on the Amazon listing before you buy.
+
+- Kingston NV3 1 TB (system drive, all tiers) <AmazonButton asin="B0DBR3DZWG" label="Check price" />
+- Kingston NV3 2 TB (samples and projects, sweet spot and up) <AmazonButton asin="B0DBR6TRZQ" label="Check price" />
+
+### Motherboards
+
+All four are ATX boards with DDR5, at least three M.2 slots, HDMI and DisplayPort for the CPU's graphics, and Windows 11 support.
+
+<ComparisonTable
+  columns={["Board", "For", "Rear USB-A", "M.2 slots", "Warranty"]}
+  rows={[
+    ["GIGABYTE B650 AORUS Elite AX", "Ryzen 5 9600X, Ryzen 7 9700X, Ryzen 9 9900X", "11", "3", "5 years (register online)"],
+    ["ASUS TUF Gaming B760-Plus WiFi (DDR5)", "Core i5-12400, Core i5-14400", "5", "3", "3 years"],
+    ["ASUS TUF Gaming Z790-Plus WiFi", "Core i7-14700K, Core i9-14900K", "6", "4", "3 years"],
+    ["ASUS TUF Gaming B860-Plus WiFi", "Core Ultra 7 270K Plus", "7", "3", "3 years"],
+  ]}
+/>
+
+The B760 board has five rear USB-A ports, one short of our target; its USB-C port with a C-to-A cable or a front-panel port covers a sixth device. ASUS also sells a DDR4 version of the B760-Plus under a near-identical name; the link below is the DDR5 one.
+
+- GIGABYTE B650 AORUS Elite AX <AmazonButton asin="B0BH7GTY9C" label="Check price" />
+- ASUS TUF Gaming B760-Plus WiFi (DDR5) <AmazonButton asin="B0BZT9KYNB" label="Check price" />
+- ASUS TUF Gaming Z790-Plus WiFi <AmazonButton asin="B0BQD58D96" label="Check price" />
+- ASUS TUF Gaming B860-Plus WiFi <AmazonButton asin="B0DFPNHCMX" label="Check price" />
+
+### Case
+
+**be quiet! Silent Base 802 Window Black.** ATX, 185 mm CPU cooler clearance (every cooler above fits), radiator mounts up to 420 mm, three 140 mm fans included, front and bottom dust filters, front USB-C and two USB-A. be quiet! lists insulation mats on the top, front and side panels and decoupled mounts for drives, fans, PSU and motherboard tray, which is the kind of design Puget's noise advice points to. It's a large case: 70.9 litres and 13.2 kg. Warranty terms differ between be quiet!'s site and the Amazon listing; check the Amazon listing before you buy.
+
+<AmazonButton asin="B08NW4MK1X" label="Check price on Amazon" />
+
+A compact alternative is the **Fractal Design North** (42 litres, 7.6 kg, 2-year warranty), but check the cooler height. Fractal lists 170 mm of clearance, which fits every cooler above with little room to spare. On the Mesh version with its side fan bracket installed, clearance drops to 145 mm, which rules out every air cooler above; use the Arctic Liquid Freezer III 240 on the front mount instead.
+
+<AmazonButton asin="B09V8HNWW9" label="Check price on Amazon" />
+
+### Power supply
+
+**be quiet! Pure Power 12 M 650W.** 650 W continuous, 80 Plus Gold at up to 92.7% efficiency, ATX 3.0, a 12VHPWR connector plus PCIe 6+2-pin, a temperature-controlled 120 mm fan, modular cables. 650 W is ample for a 65–125 W CPU on integrated graphics. Check the warranty on the Amazon listing. Your motherboard manual will tell you whether both CPU power sockets must be connected.
+
+<AmazonButton asin="B0BT33WJ38" label="Check price on Amazon" />
+
+### The builds at a glance
+
+<ComparisonTable
+  columns={["Part", "Tight budget (Intel)", "Minimum sensible", "Sweet spot", "Room to grow"]}
+  rows={[
+    ["CPU", "Core i5-12400", "Ryzen 5 9600X or Core i5-14400", "Ryzen 7 9700X or Core i7-14700K", "Ryzen 9 9900X or Core i9-14900K"],
+    ["Cooler", "Included", "AMD: Peerless Assassin 120 SE or NH-U12S redux. Intel: included", "AMD: Peerless Assassin or NH-U12S redux. Intel: Dark Rock Pro 5, NH-D15 or Liquid Freezer III 240", "Dark Rock Pro 5, NH-D15 or Liquid Freezer III 240"],
+    ["RAM", "Kingston FURY Beast 16 GB", "Corsair Vengeance 32 GB", "Corsair Vengeance 32 GB", "Corsair Vengeance 64 GB"],
+    ["SSD", "NV3 1 TB", "NV3 1 TB", "NV3 1 TB + NV3 2 TB", "NV3 1 TB + NV3 2 TB"],
+    ["Motherboard", "TUF B760-Plus WiFi", "AMD: B650 AORUS Elite AX. Intel: TUF B760-Plus WiFi", "AMD: B650 AORUS Elite AX. Intel: TUF Z790-Plus WiFi", "AMD: B650 AORUS Elite AX. Intel: TUF Z790-Plus WiFi"],
+    ["Case", "Silent Base 802", "Silent Base 802", "Silent Base 802", "Silent Base 802"],
+    ["PSU", "Pure Power 12 M 650W", "Pure Power 12 M 650W", "Pure Power 12 M 650W", "Pure Power 12 M 650W"],
+    ["OS", "Windows 11 Home", "Windows 11 Home", "Windows 11 Home", "Windows 11 Home"],
+  ]}
+/>
+
+## Things to skip
+
+- **A big graphics card.** Every source ranks it last. Money moved from the GPU to RAM or a second SSD buys more for audio.
+- **A hard drive as the main drive.** Slower loads, more dropouts when streaming samples, and often the loudest part of the PC.
+- **USB hubs for the audio interface.** Focusrite says they are known to cause issues; plug the interface straight into the PC.
+- **Windows 10 machines.** Out of Microsoft support since October 14, 2025; the current Pro Tools release is Windows 11 only.
+- **CPUs without AVX2.** Live 12 will not launch.
+- **AMD for Pro Tools.** Avid says AMD processors are not approved for Pro Tools and Pro Tools Ultimate.
+- **Older budget chips like the Ryzen 5 5500.** No integrated graphics, PCIe 3.0 only and DDR4 only; the Core i5-12400 costs a similar amount and avoids all three.
+
+## Sources
+
+- [Ableton: Computer specifications for running Live](https://help.ableton.com/hc/en-us/articles/209775305) · [Live minimum system requirements](https://help.ableton.com/hc/articles/115001663530) · [Live 12 doesn't open on Windows (AVX2)](https://help.ableton.com/hc/en-us/articles/12971338677148) · [Multi-core performance FAQ](https://help.ableton.com/hc/en-us/articles/209067649) · [Optimizing Windows for audio](https://help.ableton.com/hc/en-us/articles/209071469)
+- [Image-Line: FL Studio requirements](https://www.image-line.com/fl-studio/download) · [Arm support](https://support.image-line.com/action/knowledgebase?ans=82)
+- [PreSonus: Studio One Pro 7 Quick Start Guide](https://manuals.plus/m/fd7d391435b18536d36f1343e38eec8631415b281bf93a80f103be47a887e526.pdf)
+- [Steinberg: System requirements](https://www.steinberg.net/system-requirements) · [DAW components](https://helpcenter.steinberg.de/hc/en-us/articles/206929270-DAW-components)
+- [Avid: Pro Tools system requirements](https://kb.avid.com/articles/compatibility/Pro-Tools-System-Requirements) · [AMD processors not supported](https://kb.avid.com/pkb/articles/en_US/Compatibility/Not-supported-by-this-Processor-Type) · [Supported Windows computers](https://kb.avid.com/pkb/articles/compatibility/Pro-Tools-Supported-Windows-Computers-and-Operating-Systems)
+- [Cockos: REAPER download](https://www.reaper.fm/download.php)
+- [Native Instruments: Guide to computer hardware components](https://support.native-instruments.com/support/solutions/articles/69000880017-native-instruments-guide-to-computer-hardware-components)
+- [Focusrite: Optimising Windows for audio](https://support.focusrite.com/hc/en-gb/articles/207355205)
+- [Sweetwater: Hardware recommendations for Windows DAW systems](https://www.sweetwater.com/sweetcare/articles/hardware-recommendations-for-windows-based-daw-systems)
+- [Puget Systems: FL Studio hardware recommendations](https://www.pugetsystems.com/solutions/digital-audio-workstations/fl-studio/hardware-recommendations/)
+- [Microsoft: Windows 10 support ended October 14, 2025](https://support.microsoft.com/en-US/Windows/Deployment/updates-lifecycle/windows-10-support-has-ended-on-october-14-2025)
+- Component specs: AMD, Intel, Thermalright, Noctua, be quiet!, Arctic, Corsair, Kingston, GIGABYTE and ASUS product pages, plus the Amazon listings linked above, as of November 2026.

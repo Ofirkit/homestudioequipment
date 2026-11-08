@@ -22,6 +22,7 @@ export const CATEGORIES = [
   { slug: 'pad-controllers', name: 'Pad Controllers', blurb: 'Finger-drum beats and trigger clips.' },
   { slug: 'microphones', name: 'Microphones', blurb: 'Vocals, podcasts, and instruments.' },
   { slug: 'studio-monitors', name: 'Studio Monitors', blurb: 'Hear your mix the way it really is.' },
+  { slug: 'computers', name: 'Computers', blurb: 'A machine that runs your DAW without crackles.' },
 ] as const;
 
 export type CategorySlug = (typeof CATEGORIES)[number]['slug'];
