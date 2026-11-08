@@ -8,6 +8,9 @@ updatedDate: 2026-11-08
 author: "Ophir"
 category: "pad-controllers"
 asin: "B00J3YYSUW"
+heroImage: "../../assets/products/akai-apc40-mkii.webp"
+heroAlt: "Akai Professional APC40 MKII Ableton performance controller"
+heroCredit: "Akai Professional"
 faq:
   - q: "Does the APC40 MKII need a power supply?"
     a: "No. It's powered over USB."
@@ -24,6 +27,7 @@ faq:
 import ProductBox from '../../components/ProductBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import AmazonButton from '../../components/AmazonButton.astro';
+import apc40Image from '../../assets/products/akai-apc40-mkii.webp';
 
 > **How we wrote this:** This review is based on Akai's product specs and an analysis of owner reviews on Amazon, from first-week impressions to multi-year reports, checked by Ophir before publishing. We haven't tested this unit ourselves. [How we review](/how-we-review/)
 
@@ -38,6 +42,8 @@ If you produce or perform in Ableton Live and want clip launching, mixing and de
 <ProductBox
   name="Akai Professional APC40 MKII"
   asin="B00J3YYSUW"
+  image={apc40Image}
+  imageAlt="Akai Professional APC40 MKII Ableton performance controller"
   verdict="Still the all-in-one Ableton performance controller to beat, as long as you test every control early and have a backup plan for gigs."
   pros={["Ableton recognizes it with no setup", "Clip launching, mixing and device control without switching modes", "Physical knobs and faders, not touch strips", "Solid feel compared with budget controllers", "USB-powered, under 4 lb", "Used for VJing and lighting too"]}
   cons={["Some owners report faders, buttons or knobs failing", "Repairs can take weeks", "Stop All Clips sits next to the master track button", "Limits when mapping pads to custom functions", "Designed around Ableton Live", "1-year warranty"]}
