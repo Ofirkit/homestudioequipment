@@ -16,6 +16,8 @@ interface Props {
   imageHeight?: number;
   jsonLd?: object[];
   noindex?: boolean;
+  /** The 404 page: log a "404" event in Umami instead of a page view. */
+  notFound?: boolean;
   published?: Date;
   modified?: Date;
 }
@@ -30,6 +32,7 @@ const {
   imageHeight,
   jsonLd = [],
   noindex = false,
+  notFound = false,
   published,
   modified,
 } = Astro.props;
@@ -87,7 +90,17 @@ const navCategories = await getLiveCategories();
       src="https://cloud.umami.is/script.js"
       data-website-id="103a0bcd-f66e-400e-a850-52ea78d89b9e"
       data-domains="homestudioequipment.com"
+      data-auto-track={notFound ? 'false' : undefined}
     ></script>
+    {
+      notFound && (
+        <script is:inline>
+          window.addEventListener('load', function () {
+            if (window.umami) umami.track('404', { path: location.pathname + location.search, referrer: document.referrer || '(none)' });
+          });
+        </script>
+      )
+    }
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
